@@ -1,0 +1,2 @@
+# Chinese_Windows_Shell
+一个运行在Windows平台上的中文shell，旨在为中文开发者一个母语shell平台，本程序使用Rust编写。
