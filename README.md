@@ -17,6 +17,8 @@ cp：输入"cp"或"copy"或"复制"，空格，加上源文件，空格，加上
 
 exit：输入"exit"或"quit"或"退出"，关闭命令行。 
 
+remove:输入"del"或"rm"或"rmdir"或"remove"或"删除"，空格，加上路径，会自己识别文件还是文件夹，然后彻底删除，不进回收站！
+
 # Chinese_Windows_Shell
 
 ## Introduction
