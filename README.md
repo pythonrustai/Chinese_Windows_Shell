@@ -52,3 +52,8 @@ Warning: If a file with the same name already exists in the destination director
 ### 4. exit (Quit Shell Program)
 Usage: Type `exit` / `quit` (or Chinese alias: 退出)
 Function: Terminate and close the Shell terminal window.
+
+### 5.remove (Remove folder or files)
+Usage: Type del, rm, rmdir, remove or the Chinese word 删除
+Function: Followed by a space and a path.The program will automatically distinguish whether the target is a file or folder, then permanently delete it without sending items to the Recycle Bin!
+
