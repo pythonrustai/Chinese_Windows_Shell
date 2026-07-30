@@ -33,7 +33,7 @@ Double-click the `.exe` file to launch the program directly.
 
 ## Supported Commands (Current Status)
 This Shell is still in the early development stage with limited features.
-It currently supports basic commands: `cd`, `ls`, `pwd`, `copy`, `exit`.
+It currently supports basic commands: `cd`, `ls`, `pwd`, `copy`, `exit`,`del`.
 More commands will be added iteratively in subsequent updates to achieve full compatibility with the official Windows CMD.
 
 ## Command Manual
