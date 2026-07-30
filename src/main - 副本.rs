@@ -1,3 +1,4 @@
+use std::arch::x86_64::__m128;
 use std::env;
 use std::fs;
 use std::io;
@@ -48,18 +49,17 @@ fn main() {
                          }
             },
             "\n" => continue,
-            "rm" | "删除" | "rmdir" | "remove" | "del" =>  {
+            "rm" | "删除" | "rmdir" | "remove" => {
                 println!("您确定要删除{}吗?(Y/n)", a[1].to_string());
                 let mut q = String::new();
                 io::stdin().read_line(&mut q).expect("读取确认输入失败");;
                 if q.trim() == "Y"{
-                    if Path::is_dir(std::path::Path::new(a[1])) {
-                        fs::remove_dir_all(a[1]).unwrap();
-                        println!("成功删除文件夹\"{}\",祝你好运!", a[1].to_string());
-                    }
-                    else if Path::is_file(std::path::Path::new(a[1])) {
-                        fs::remove_file(a[1]).unwrap();
-                        println!("成功删除文件\"{}\",祝你好运!", a[1].to_string());
+
+                    match fs::remove_dir_all(a[1]){
+                        Ok(_) => println!("\"{}\"删除成功", a[1].to_string()),
+                        Err(_) => { println!("无法删除！");
+                                    continue;
+                        }
                     }
                 }else if q.trim() =="n" {
                     continue;
