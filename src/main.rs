@@ -1,7 +1,7 @@
 use std::env;
 use std::fs;
-use std::io;
 use std::path::Path;
+use std::io::{stdin, self, Write};
 fn main() {
     loop {
         let mut line = env::current_dir();
@@ -47,7 +47,7 @@ fn main() {
                          println!("{:#?}已保存在{:#?}", a[1].to_string(), a[2].to_string());
                          }
             },
-            "\n" => continue,
+            "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" =>  {
                 println!("您确定要删除{}吗?(Y/n)", a[1].to_string());
                 let mut q = String::new();
@@ -68,6 +68,11 @@ fn main() {
                     continue;
                 }
             }
+            "echo" =>{
+                let mut w: Vec<String> = Vec::new();
+                let q: String = a[1..].join(" ");
+                println!("{:#?}", q);
+            },
             _ => println!("Error: command \"{}\" not found", mingl),
         }
     }

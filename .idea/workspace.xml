@@ -11,14 +11,18 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="" />
+    <list default="true" id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main - 副本.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="492" />
+    <option name="cachedIndexableFilesCount" value="9" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="Git.Settings">
@@ -33,97 +37,99 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000001839457" />
-      <entry key="MS500" value="1.0115108644470543" />
-      <entry key="S2" value="1.4736116381354705" />
-      <entry key="S5" value="2.324582370096424" />
-      <entry key="S10" value="3.2377632273479273" />
-      <entry key="S30" value="5.906449017828218" />
-      <entry key="S60" value="8.909373246948402" />
-      <entry key="M2" value="13.180794049528629" />
-      <entry key="M5" value="19.465211331454782" />
-      <entry key="M10" value="24.41321227845978" />
-      <entry key="M15" value="27.21245061336648" />
-      <entry key="M30" value="31.210949788009405" />
-      <entry key="H1" value="35.09697993111375" />
-      <entry key="H2" value="42.88189996390459" />
-      <entry key="H4" value="54.37888647176256" />
-      <entry key="D1" value="74.84678300080893" />
-      <entry key="W1" value="80.06596193860723" />
+      <entry key="MS100" value="1.0000221858599445" />
+      <entry key="MS500" value="1.1172776495625838" />
+      <entry key="S2" value="1.5852576797413547" />
+      <entry key="S5" value="1.8565721360014598" />
+      <entry key="S10" value="2.3904216264211717" />
+      <entry key="S30" value="4.733905509530935" />
+      <entry key="S60" value="7.376349560656971" />
+      <entry key="M2" value="10.922540650098563" />
+      <entry key="M5" value="18.685618452958877" />
+      <entry key="M10" value="30.47116185809727" />
+      <entry key="M15" value="40.430718139849745" />
+      <entry key="M30" value="59.39021054940997" />
+      <entry key="H1" value="76.25220548367624" />
+      <entry key="H2" value="92.2477731785599" />
+      <entry key="H4" value="108.74767618338728" />
+      <entry key="D1" value="135.20535905007" />
+      <entry key="W1" value="141.81813003867518" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.8402901971829725E-140" />
-      <entry key="MS500" value="1.129736765846889E-28" />
-      <entry key="S2" value="1.0309659350004649E-7" />
-      <entry key="S5" value="0.0016043453082889919" />
-      <entry key="S10" value="0.040079987360216944" />
-      <entry key="S30" value="0.38764136693038614" />
-      <entry key="S60" value="0.9113399471357377" />
-      <entry key="M2" value="1.7121925035303112" />
-      <entry key="M5" value="3.0045311136265163" />
-      <entry key="M10" value="4.264706681635159" />
-      <entry key="M15" value="5.051822636908152" />
-      <entry key="M30" value="6.226856493373016" />
-      <entry key="H1" value="7.315181049778764" />
-      <entry key="H2" value="9.219350831574573" />
-      <entry key="H4" value="11.903559113984453" />
-      <entry key="D1" value="16.598093159280715" />
-      <entry key="W1" value="17.787386588589108" />
+      <entry key="MS100" value="2.6555030282094967E-181" />
+      <entry key="MS500" value="7.670600425445532E-37" />
+      <entry key="S2" value="9.358523603750577E-10" />
+      <entry key="S5" value="2.446161659428159E-4" />
+      <entry key="S10" value="0.01569781127695768" />
+      <entry key="S30" value="0.3495119413802483" />
+      <entry key="S60" value="1.258087323438415" />
+      <entry key="M2" value="3.1920808715828026" />
+      <entry key="M5" value="7.725517468774522" />
+      <entry key="M10" value="13.032025332624093" />
+      <entry key="M15" value="16.72576727200312" />
+      <entry key="M30" value="23.00103162580845" />
+      <entry key="H1" value="28.152007388417733" />
+      <entry key="H2" value="32.58417906718627" />
+      <entry key="H4" value="36.77310281542557" />
+      <entry key="D1" value="43.157208725614645" />
+      <entry key="W1" value="44.7213344929116" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8950250710949069" />
-      <entry key="MS500" value="0.9893530876147685" />
-      <entry key="S2" value="1.4657894361520343" />
-      <entry key="S5" value="2.321090880506355" />
-      <entry key="S10" value="3.270459336368818" />
-      <entry key="S30" value="6.270895538881464" />
-      <entry key="S60" value="9.77351385558259" />
-      <entry key="M2" value="14.825329054888629" />
-      <entry key="M5" value="22.409508304992215" />
-      <entry key="M10" value="28.633837373303887" />
-      <entry key="M15" value="32.229555868069575" />
-      <entry key="M30" value="37.4166288298701" />
-      <entry key="H1" value="42.39996640927643" />
-      <entry key="H2" value="52.093938210252354" />
-      <entry key="H4" value="66.27796643888709" />
-      <entry key="D1" value="91.44389180802624" />
-      <entry key="W1" value="97.85319930902469" />
+      <entry key="MS100" value="3.016430224245098E-5" />
+      <entry key="MS500" value="0.2106367563836758" />
+      <entry key="S2" value="1.1376376176519822" />
+      <entry key="S5" value="1.6380636442532341" />
+      <entry key="S10" value="2.2554552276242177" />
+      <entry key="S30" value="4.972427283119" />
+      <entry key="S60" value="8.536643934687397" />
+      <entry key="M2" value="14.020412740358026" />
+      <entry key="M5" value="26.32391905802932" />
+      <entry key="M10" value="43.42769316656268" />
+      <entry key="M15" value="57.09035597698535" />
+      <entry key="M30" value="82.34391947857999" />
+      <entry key="H1" value="104.37440651524818" />
+      <entry key="H2" value="124.81436065400042" />
+      <entry key="H4" value="145.51071291368783" />
+      <entry key="D1" value="178.36056766395254" />
+      <entry key="W1" value="186.5391675131914" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3HCyKIW7F4bFqnSF4BP249g09n2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Run shell.executor": "Debug",
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Run shell.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vip88/Desktop/shell&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Cargo.Run shell">
     <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />

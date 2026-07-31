@@ -6,7 +6,7 @@
 exe在路径shell\target\debug\shell.exe ,双击运行即可
 
 ## 目前支持命令
-目前此shell较为简陋，仅支持 cd,ls,pwd,copy,exit等，后续我会逐步添加命令，以达到兼容CMD的效果
+目前此shell较为简陋，仅支持 cd,ls,pwd,copy,exit,echo,pwd等，后续我会逐步添加命令，以达到兼容CMD的效果
 
 ## 命令指南
 cd: 输入"cd"或"切换目录" ，再空格，再输入路径。 
@@ -16,6 +16,10 @@ ls: 输入"ls"或"目录下文件"或"dir"打印当前路径下的所有文件�
 cp：输入"cp"或"copy"或"复制"，空格，加上源文件，空格，加上目标路径(末尾加上你的目标文件的路径)，注意：如果该目录有同名文件，会覆盖！ 
 
 exit：输入"exit"或"quit"或"退出"，关闭命令行。 
+
+echo：输入"echo"或"打印"，空格，加上要打印的内容，打印出要打印的内容。
+
+pwd：输入"pwd"或"当前路径"，打印出当前路径。
 
 # Chinese_Windows_Shell
 
@@ -50,3 +54,11 @@ Warning: If a file with the same name already exists in the destination director
 ### 4. exit (Quit Shell Program)
 Usage: Type `exit` / `quit` (or Chinese alias: 退出)
 Function: Terminate and close the Shell terminal window.
+
+### 5. echo (Print Message)
+Usage: Type `echo` (or Chinese alias: 打印) + space + message to print
+Function: Print the specified message on the terminal.
+
+### 6. pwd (Print Current Working Directory)
+Usage: Type `pwd` (or Chinese alias: 当前路径)
+Function: Print the current working directory path.
