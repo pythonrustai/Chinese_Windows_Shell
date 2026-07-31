@@ -21,6 +21,8 @@ echo：输入"echo"或"打印"，空格，加上要打印的内容，打印出�
 
 pwd：输入"pwd"或"当前路径"，打印出当前路径。
 
+remove:输入"del"或"rm"或"rmdir"或"remove"或"删除"，空格，加上路径，会自己识别文件还是文件夹，然后彻底删除，不进回收站！
+
 # Chinese_Windows_Shell
 
 ## Introduction
@@ -35,24 +37,28 @@ Double-click the `.exe` file to launch the program directly.
 
 ## Supported Commands (Current Status)
 This Shell is still in the early development stage with limited features.
-It currently supports basic commands: `cd`, `ls`, `pwd`, `copy`, `exit`.
+It currently supports basic commands: `cd`, `ls`, `pwd`, `copy`, `exit`,`del`.
 More commands will be added iteratively in subsequent updates to achieve full compatibility with the official Windows CMD.
 
 ## Command Manual
 ### 1. cd (Change Working Directory)
 Usage: Type `cd` (or Chinese alias: 切换目录) + space + target directory path
+
 Function: Navigate to the specified folder path.
 
 ### 2. ls (List Directory Contents)
 Usage: Type `ls` / `dir` (or Chinese alias: 目录下文件)
+
 Function: List all files and folders inside the current directory, sorted alphabetically.
 
 ### 3. cp / copy (File Copy)
 Usage: Type `cp` / `copy` (or Chinese alias: 复制) + space + source file path + space + destination path
+
 Warning: If a file with the same name already exists in the destination directory, it will be overwritten without prompt.
 
 ### 4. exit (Quit Shell Program)
 Usage: Type `exit` / `quit` (or Chinese alias: 退出)
+
 Function: Terminate and close the Shell terminal window.
 
 ### 5. echo (Print Message)
@@ -62,3 +68,8 @@ Function: Print the specified message on the terminal.
 ### 6. pwd (Print Current Working Directory)
 Usage: Type `pwd` (or Chinese alias: 当前路径)
 Function: Print the current working directory path.
+### 7.remove (Remove folder or files)
+Usage: Type del, rm, rmdir, remove or the Chinese word 删除
+
+Function: Followed by a space and a path.The program will automatically distinguish whether the target is a file or folder, then permanently delete it without sending items to the Recycle Bin!
+
