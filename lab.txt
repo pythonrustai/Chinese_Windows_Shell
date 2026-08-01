@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 You are on a lab.
 This is a lab's file!
 My English is not good,because I'm a Chinese.
-Please!😟😟😟
+I'm so Sorry!!!Please!!!😟😟😟
 19:42 2026/7/29
-=======
-You are on a lab.
-This is a lab's file!
-My English is not good,because I'm a Chinese.
-Please.
-19:42 2026/7/29
->>>>>>> 4f81ec8a4efdea59142086cd72a341b401b74896
+
