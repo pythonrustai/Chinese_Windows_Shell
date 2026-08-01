@@ -13,12 +13,16 @@ fn main() {
             Err(_) => break,
         }
         let mut io: String = String::new();
-        println!("PS {:#?}>", line1);
+        println!("PS {}>", line1);
         let _ = io::stdin().read_line(&mut io);
         mingl = io.trim().to_string().clone();
-        let a: Vec<&str> = mingl.split(" ").collect();
+        if mingl.len() == 0 { continue }
+        let a: Vec<&str> = mingl.split_whitespace().collect();
         match a[0].trim() {
             "切换目录" | "cd" => {
+                if a.len()<2 {
+                    continue;
+                }
                 xiab += 1;
                 match env::set_current_dir(&a[xiab]) {
                     Ok(_) => {},
@@ -41,14 +45,14 @@ fn main() {
             "退出" | "exit" | "quit" => break,
             "当前目录" | "pwd" => println!("{:?}", env::current_dir().unwrap()),
             "复制" | "cp" | "copy" => {
-                let mut a: Vec<&str> = mingl.split(" ").collect();
-                     for i in &a {
-                         let _ = fs::copy(a[1].to_string(), a[2].to_string());
-                         println!("{:#?}已保存在{:#?}", a[1].to_string(), a[2].to_string());
-                         }
+                if a.len() < 3 {continue;}
+                let mut a: Vec<&str> = mingl.split_whitespace().collect();
+                    let _ = fs::copy(a[1].to_string(), a[2].to_string());
+                    println!("{:#?}已保存在{:#?}", a[1].to_string(), a[2].to_string());
             },
             "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" =>  {
+                if a.len()<2 {continue;}
                 println!("您确定要删除{}吗?(Y/n)", a[1].to_string());
                 let mut q = String::new();
                 io::stdin().read_line(&mut q).expect("读取确认输入失败");;
@@ -68,7 +72,8 @@ fn main() {
                     continue;
                 }
             }
-            "echo" =>{
+            "echo" | "打印" | "print"=>{
+                if a.len()<2 {continue;}
                 let mut w: Vec<String> = Vec::new();
                 let q: String = a[1..].join(" ");
                 println!("{:#?}", q);
@@ -76,5 +81,4 @@ fn main() {
             _ => println!("Error: command \"{}\" not found", mingl),
         }
     }
-
 }

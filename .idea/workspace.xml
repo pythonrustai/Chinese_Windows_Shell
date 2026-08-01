@@ -21,9 +21,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="9" />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,61 +34,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000221858599445" />
-      <entry key="MS500" value="1.1172776495625838" />
-      <entry key="S2" value="1.5852576797413547" />
-      <entry key="S5" value="1.8565721360014598" />
-      <entry key="S10" value="2.3904216264211717" />
-      <entry key="S30" value="4.733905509530935" />
-      <entry key="S60" value="7.376349560656971" />
-      <entry key="M2" value="10.922540650098563" />
-      <entry key="M5" value="18.685618452958877" />
-      <entry key="M10" value="30.47116185809727" />
-      <entry key="M15" value="40.430718139849745" />
-      <entry key="M30" value="59.39021054940997" />
-      <entry key="H1" value="76.25220548367624" />
-      <entry key="H2" value="92.2477731785599" />
-      <entry key="H4" value="108.74767618338728" />
-      <entry key="D1" value="135.20535905007" />
-      <entry key="W1" value="141.81813003867518" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000017636552394" />
+      <entry key="S5" value="1.0049953448770206" />
+      <entry key="S10" value="1.0706777962503526" />
+      <entry key="S30" value="1.4169656606422898" />
+      <entry key="S60" value="1.7102956297743115" />
+      <entry key="M2" value="2.254747220102685" />
+      <entry key="M5" value="4.240040357641188" />
+      <entry key="M10" value="6.420501824497413" />
+      <entry key="M15" value="7.581240289725253" />
+      <entry key="M30" value="9.101751067936108" />
+      <entry key="H1" value="11.68353732643116" />
+      <entry key="H2" value="24.630979015539566" />
+      <entry key="H4" value="54.29359553709639" />
+      <entry key="D1" value="131.11053297559738" />
+      <entry key="W1" value="155.44183788283937" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="2.6555030282094967E-181" />
-      <entry key="MS500" value="7.670600425445532E-37" />
-      <entry key="S2" value="9.358523603750577E-10" />
-      <entry key="S5" value="2.446161659428159E-4" />
-      <entry key="S10" value="0.01569781127695768" />
-      <entry key="S30" value="0.3495119413802483" />
-      <entry key="S60" value="1.258087323438415" />
-      <entry key="M2" value="3.1920808715828026" />
-      <entry key="M5" value="7.725517468774522" />
-      <entry key="M10" value="13.032025332624093" />
-      <entry key="M15" value="16.72576727200312" />
-      <entry key="M30" value="23.00103162580845" />
-      <entry key="H1" value="28.152007388417733" />
-      <entry key="H2" value="32.58417906718627" />
-      <entry key="H4" value="36.77310281542557" />
-      <entry key="D1" value="43.157208725614645" />
-      <entry key="W1" value="44.7213344929116" />
+      <entry key="MS100" value="6.897364542830223E-55" />
+      <entry key="MS500" value="1.4714489612220098E-11" />
+      <entry key="S2" value="0.0021922051044399693" />
+      <entry key="S5" value="0.15247589725232433" />
+      <entry key="S10" value="0.7921301392164082" />
+      <entry key="S30" value="2.6390576771355985" />
+      <entry key="S60" value="3.62330617236598" />
+      <entry key="M2" value="4.355324373864192" />
+      <entry key="M5" value="5.711909531375661" />
+      <entry key="M10" value="7.092244116784933" />
+      <entry key="M15" value="7.826935848332401" />
+      <entry key="M30" value="8.783704521318583" />
+      <entry key="H1" value="9.931655665045735" />
+      <entry key="H2" value="14.358566192843982" />
+      <entry key="H4" value="23.788446880264406" />
+      <entry key="D1" value="46.69461400126951" />
+      <entry key="W1" value="53.69764711687606" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.016430224245098E-5" />
-      <entry key="MS500" value="0.2106367563836758" />
-      <entry key="S2" value="1.1376376176519822" />
-      <entry key="S5" value="1.6380636442532341" />
-      <entry key="S10" value="2.2554552276242177" />
-      <entry key="S30" value="4.972427283119" />
-      <entry key="S60" value="8.536643934687397" />
-      <entry key="M2" value="14.020412740358026" />
-      <entry key="M5" value="26.32391905802932" />
-      <entry key="M10" value="43.42769316656268" />
-      <entry key="M15" value="57.09035597698535" />
-      <entry key="M30" value="82.34391947857999" />
-      <entry key="H1" value="104.37440651524818" />
-      <entry key="H2" value="124.81436065400042" />
-      <entry key="H4" value="145.51071291368783" />
-      <entry key="D1" value="178.36056766395254" />
-      <entry key="W1" value="186.5391675131914" />
+      <entry key="MS100" value="0.9201876506248751" />
+      <entry key="MS500" value="0.983502074032241" />
+      <entry key="S2" value="0.9975883726981594" />
+      <entry key="S5" value="1.139553028509263" />
+      <entry key="S10" value="1.8111726651751563" />
+      <entry key="S30" value="3.989373399403074" />
+      <entry key="S60" value="5.28504765525428" />
+      <entry key="M2" value="6.578301809287124" />
+      <entry key="M5" value="9.931409735706158" />
+      <entry key="M10" value="13.498082257209349" />
+      <entry key="M15" value="15.396800979002325" />
+      <entry key="M30" value="17.878703764280456" />
+      <entry key="H1" value="21.61088850546265" />
+      <entry key="H2" value="38.98507625231754" />
+      <entry key="H4" value="78.07722829188921" />
+      <entry key="D1" value="177.80327532340274" />
+      <entry key="W1" value="209.1391703911263" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
