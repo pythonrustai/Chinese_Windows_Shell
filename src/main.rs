@@ -113,7 +113,7 @@ fn main() {
                 }
 
             },
-            "type" | "文件内容" => {
+            "type" | "文件内容" | "cat" => {
                 if a.len() < 2 {
                     println!("命令\"{}\"无效!", a[0].to_string());
                     continue; }
