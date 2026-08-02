@@ -23,6 +23,11 @@ pwd：输入"pwd"或"当前路径"，打印出当前路径。
 
 remove:输入"del"或"rm"或"rmdir"或"remove"或"删除"，空格，加上路径，会自己识别文件还是文件夹，然后彻底删除，不进回收站！
 
+type: 输入"type"或"文件内容"，空格，加上要打印的文件路径，会打印出该文件的内容。
+
+mkdir: 输入"mkdir"或"创建目录"或"新建文件夹"新文件夹”或"创建目录"，空格，加上要创建的目录路径，会创建该目录。
+
+touch: 输入"touch"或"创建文件"或"新建文件"或"创建文件"或"New-Item"或"type nul >"或"ni"或"新文件" ，空格，加上要创建的文件路径，会创建该文件。
 # Chinese_Windows_Shell
 
 ## Introduction
@@ -69,7 +74,22 @@ Function: Print the specified message on the terminal.
 Usage: Type `pwd` (or Chinese alias: 当前路径)
 Function: Print the current working directory path.
 ### 7.remove (Remove folder or files)
-Usage: Type del, rm, rmdir, remove or the Chinese word 删除
+Usage: Type `del` / `rm` / `rmdir` / `remove` or the Chinese word 删除
 
 Function: Followed by a space and a path.The program will automatically distinguish whether the target is a file or folder, then permanently delete it without sending items to the Recycle Bin!
+
+### 8. type (Print File Content)
+Usage: Type `type` or the Chinese word `文件内容` + space + file path
+
+Function: Print the content of the specified file on the terminal.
+
+### 9. mkdir (Create Directory)
+Usage: Type `mkdir` or the Chinese word `创建目录` + space + directory path
+
+Function: Create a new directory at the specified path.
+
+### 10. touch (Create File)
+Usage: Type `touch` or the Chinese word `创建文件` + space + file path
+
+Function: Create a new file at the specified path.
 
