@@ -28,6 +28,8 @@ type: 输入"type"或"文件内容"，空格，加上要打印的文件路径，
 mkdir: 输入"mkdir"或"创建目录"或"新建文件夹"新文件夹”或"创建目录"，空格，加上要创建的目录路径，会创建该目录。
 
 touch: 输入"touch"或"创建文件"或"新建文件"或"创建文件"或"New-Item"或"type nul >"或"ni"或"新文件" ，空格，加上要创建的文件路径，会创建该文件。
+
+（注：直接在命令行中输入可执行文件名或批处理文件名，即可执行）
 # Chinese_Windows_Shell
 
 ## Introduction
@@ -93,3 +95,4 @@ Usage: Type `touch` or the Chinese word `创建文件` + space + file path
 
 Function: Create a new file at the specified path.
 
+(Notice: Directly input the executable file name or batch file name in the command line to execute it.)

@@ -2,9 +2,11 @@ use std::env;
 use std::fs;
 use std::path::Path;
 use std::io;
+use std::process::Command;
+use std::io::Write;
 fn main() {
     loop {
-        let mut line = env::current_dir();
+        let line = env::current_dir();
         let mut line1: String = String::new();
         let mut mingl: String = String::new();
         let mut xiab: usize = 0;
@@ -13,23 +15,26 @@ fn main() {
             Err(_) => break,
         }
         let mut io: String = String::new();
-        println!("PS {}>", line1);
+        print!("PS {}>", line1);
+        io::stdout().flush().unwrap();
         let _ = io::stdin().read_line(&mut io);
         mingl = io.trim().to_string().clone();
-        if mingl.len() == 0 { continue }
+        if mingl.len() == 0 { continue; }
         let a: Vec<&str> = mingl.split_whitespace().collect();
         match a[0].trim() {
             "切换目录" | "cd" => {
-                if a.len() < 2 {
-                    println!("命令\"{}\"无效!", a[0].to_string());
-                    continue;
+                if a.len() == 1 {
+                    let _ = env::set_current_dir(env::home_dir().unwrap());
+                } else {
+                    let full_path = a[1..].join(" ");
+                    match env::set_current_dir(Path::new(&full_path)) {
+                        Ok(_) => {}
+                        Err(q) => {
+                            eprintln!("切换目录失败：{}", q);
+                        }
+                    }
                 }
-                xiab += 1;
-                match env::set_current_dir(&a[xiab]) {
-                    Ok(_) => {},
-                    Err(_) => { println!("Error: 无法前往此路径 ") },
-                }
-            }
+            },
             "目录下文件" | "ls" | "dir" => {
                 let ls = fs::read_dir(".");
                 match ls {
@@ -121,8 +126,13 @@ fn main() {
                     Err(_) => println!("\"{}\"无法打开", a[1].to_string())
                 }
 
+            },
+            _ => {
+                let q= Command::new("cmd").args(["/c", &mingl]).spawn();
+                match &q {
+                    Ok(_q) => {},
+                    Err(_) => println!("Error:\"{}\"command not found!\n错误:命令\"{}\"不是命令或可执行文件!", mingl, mingl) }
             }
-            _ => println!("Error: command \"{}\" not found", mingl),
         }
     }
 }

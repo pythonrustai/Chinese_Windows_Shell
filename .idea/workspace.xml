@@ -12,19 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lab.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="9" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="Git.Settings">
@@ -39,61 +34,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000001261942448" />
-      <entry key="S2" value="1.028290362765601" />
-      <entry key="S5" value="1.4390410326257932" />
-      <entry key="S10" value="2.1528235059018908" />
-      <entry key="S30" value="3.991295077563258" />
-      <entry key="S60" value="5.785991836697006" />
-      <entry key="M2" value="7.903305913934691" />
-      <entry key="M5" value="14.334893848363699" />
-      <entry key="M10" value="25.426563961089578" />
-      <entry key="M15" value="35.47563329704715" />
-      <entry key="M30" value="58.56918782713354" />
-      <entry key="H1" value="84.68800301954188" />
-      <entry key="H2" value="114.26364808302526" />
-      <entry key="H4" value="157.20285469937085" />
-      <entry key="D1" value="294.34628802770146" />
-      <entry key="W1" value="349.1258463249624" />
+      <entry key="MS100" value="8.199790793620537E-117" />
+      <entry key="MS500" value="6.064019014615542E-24" />
+      <entry key="S2" value="1.5692427779863108E-6" />
+      <entry key="S5" value="0.004767339222125444" />
+      <entry key="S10" value="0.0690459211114273" />
+      <entry key="S30" value="0.4102475795559592" />
+      <entry key="S60" value="0.6408124683232932" />
+      <entry key="M2" value="0.8649785770893765" />
+      <entry key="M5" value="3.6250231575662206" />
+      <entry key="M10" value="13.868007592810274" />
+      <entry key="M15" value="25.65802084333721" />
+      <entry key="M30" value="56.89711272309851" />
+      <entry key="H1" value="96.67119668381322" />
+      <entry key="H2" value="139.36408233525924" />
+      <entry key="H4" value="191.40916836352042" />
+      <entry key="D1" value="341.76616750827907" />
+      <entry key="W1" value="401.1896865730579" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.790393517226618E-216" />
-      <entry key="S2" value="1.3133139099150103E-54" />
-      <entry key="S5" value="3.3175292912786915E-22" />
-      <entry key="S10" value="2.3992274887706178E-11" />
-      <entry key="S30" value="4.543992301203361E-4" />
-      <entry key="S60" value="0.032109892750739236" />
-      <entry key="M2" value="0.2927069918425737" />
-      <entry key="M5" value="1.344377784633689" />
-      <entry key="M10" value="2.9898427089940545" />
-      <entry key="M15" value="4.430042469248315" />
-      <entry key="M30" value="7.509015131068685" />
-      <entry key="H1" value="10.983343440474796" />
-      <entry key="H2" value="16.312449235227295" />
-      <entry key="H4" value="27.194793998742952" />
-      <entry key="D1" value="66.83639317921478" />
-      <entry key="W1" value="82.83119304752567" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000016605661667" />
+      <entry key="S2" value="1.0683069564317729" />
+      <entry key="S5" value="1.447542486524158" />
+      <entry key="S10" value="1.915698868647619" />
+      <entry key="S30" value="2.53146471038104" />
+      <entry key="S60" value="2.7902954593119773" />
+      <entry key="M2" value="3.077315209446545" />
+      <entry key="M5" value="3.7121225976694587" />
+      <entry key="M10" value="5.399111154007902" />
+      <entry key="M15" value="7.3778893270881944" />
+      <entry key="M30" value="12.399142355079992" />
+      <entry key="H1" value="18.438796337346677" />
+      <entry key="H2" value="25.74827843844456" />
+      <entry key="H4" value="37.744950360711506" />
+      <entry key="D1" value="79.56726344309341" />
+      <entry key="W1" value="96.60965843242919" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9201876506248751" />
-      <entry key="MS500" value="0.9835021977982713" />
-      <entry key="S2" value="1.02401121717773" />
-      <entry key="S5" value="1.4366082983077597" />
-      <entry key="S10" value="2.150992458983386" />
-      <entry key="S30" value="3.9905734695552404" />
-      <entry key="S60" value="5.8165095656266" />
-      <entry key="M2" value="8.191856955875663" />
-      <entry key="M5" value="15.67131178550595" />
-      <entry key="M10" value="28.406087298077427" />
-      <entry key="M15" value="39.89419488137861" />
-      <entry key="M30" value="66.06642201980452" />
-      <entry key="H1" value="95.66154914444314" />
-      <entry key="H2" value="130.5684464733203" />
-      <entry key="H4" value="184.39119564254563" />
-      <entry key="D1" value="361.1799325045758" />
-      <entry key="W1" value="431.9565470401813" />
+      <entry key="MS100" value="2.81947149850606E-8" />
+      <entry key="MS500" value="0.03090604316129584" />
+      <entry key="S2" value="0.45008802255682995" />
+      <entry key="S5" value="1.0307551540226105" />
+      <entry key="S10" value="1.6508566625540848" />
+      <entry key="S30" value="2.7157065764701622" />
+      <entry key="S60" value="3.2816337115236753" />
+      <entry key="M2" value="3.8529960600142474" />
+      <entry key="M5" value="7.2912076479256545" />
+      <entry key="M10" value="19.23307611235782" />
+      <entry key="M15" value="33.00542209709714" />
+      <entry key="M30" value="69.27127053603289" />
+      <entry key="H1" value="115.09133924934686" />
+      <entry key="H2" value="165.09933529243781" />
+      <entry key="H4" value="229.14469538526066" />
+      <entry key="D1" value="421.3300986967676" />
+      <entry key="W1" value="497.7987630911717" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -105,33 +100,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Run shell.executor": "Run",
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/vip88/Desktop/shell",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "language.rust.cargo.check",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Run shell.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vip88/Desktop/shell&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;language.rust.cargo.check&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Cargo.Run shell">
     <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
