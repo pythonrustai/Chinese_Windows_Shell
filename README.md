@@ -1,3 +1,4 @@
+![Build Status](https://img.shields.io/github/actions/workflow/status/pythonrustai/Chinese_Windows_Shell/rust.yml?label=Build)
 # Chinese_Windows_Shell
 ## 简介
 一个运行在Windows平台上的中文shell，旨在为中文开发者一个母语shell平台，本程序使用Rust编写
