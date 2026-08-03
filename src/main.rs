@@ -49,7 +49,7 @@ fn main() {
                 }
             }
             "退出" | "exit" | "quit" => break,
-            "当前目录" | "pwd" => println!("{:?}", env::current_dir().unwrap()),
+            "当前目录" | "pwd" => { println!("{}", env::current_dir().unwrap().display()); }
             "复制" | "cp" | "copy" => {
                 if a.len() < 3 {
                     println!("命令\"{}\"无效!", a[0].to_string());
@@ -60,7 +60,7 @@ fn main() {
                 }
                 let a: Vec<&str> = mingl.split_whitespace().collect();
                 let _ = fs::copy(a[1].to_string(), a[2].to_string());
-                println!("{:#?}已保存在{:#?}", a[1].to_string(), a[2].to_string());
+                println!("{}已保存在{}", a[1].to_string(), a[2].to_string());
             },
             "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" | "delete" => {
@@ -98,11 +98,45 @@ fn main() {
                     println!("命令\"{}\"无效!", a[0].to_string());
                     continue;
                 }
-                match fs::create_dir(a[1]) {
-                    Ok(_) => { let _ = fs::create_dir(a[1]); },
-                    Err(_) => { println!("文件夹\"{}\"创建", a[1].to_string()); }
-                };
-            },
+                if a.len() == 2 {
+                    match fs::create_dir(a[1]) {
+                        Ok(_) => {
+                            println!("文件夹\"{}\"创建成功", a[1].to_string());
+                        },
+                        Err(_) => { println!("文件夹\"{}\"创建失败", a[1].to_string()); }
+                    };
+                }
+                if a.len() > 2 {
+                    let q: usize = a.len();
+                    let mut m: usize = 1;
+                    while m < q {
+                        match fs::create_dir(a[m].to_string()) {
+                            Ok(_) => {
+                                let _ = fs::create_dir(a[m].to_string());
+                                println!("文件夹\"{}\"创建成功", a[m].to_string());},
+                            Err(_) => println!("文件夹\"{}\"创建失败", a[m].to_string())
+                        }
+                        let _ = env::set_current_dir(Path::new(&a[m]));
+                        m += 1;
+                        }
+                    }
+                if a.len() > 3 {
+                    if a[1] == "-h" {
+                        let x: usize = a.len().try_into().unwrap();
+                        let mut c: usize = 2;
+                        let patt = env::current_dir();
+                        while c < x {
+                            match fs::create_dir(a[c].to_string()) {
+                                Ok(_) => { println!("文件夹\"{}\"创建成功", a[c].to_string()); },
+                                Err(_) => println!("文件夹\"{}\"创建失败", a[c].to_string())
+                            }
+                            let _ = env::set_current_dir(Path::new(&a[c]));
+                            c += 1;
+                            }
+                        }
+                    let _ = env::set_current_dir(env::home_dir().unwrap());
+                }
+            }
             "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" => {
                 if a.len() < 2 {
                     println!("命令\"{}\"无效!", a[0].to_string());
@@ -112,7 +146,7 @@ fn main() {
                     let _ = fs::File::create(a[1]);
                 }
 
-            },
+            }
             "type" | "文件内容" | "cat" => {
                 if a.len() < 2 {
                     println!("命令\"{}\"无效!", a[0].to_string());
@@ -126,12 +160,18 @@ fn main() {
                     Err(_) => println!("\"{}\"无法打开", a[1].to_string())
                 }
 
-            },
+            }
             _ => {
-                let q= Command::new("cmd").args(["/c", &mingl]).spawn();
-                match &q {
-                    Ok(_q) => {},
-                    Err(_) => println!("Error:\"{}\"command not found!\n错误:命令\"{}\"不是命令或可执行文件!", mingl, mingl) }
+                let w = &a[0];
+                let mlwj = fs::read_dir(".");
+                if let mlwj = w {
+                    if std::path::Path::new(&w).exists() {
+                        let q= Command::new("cmd").args(["/c", &mingl]).spawn();
+                        match &q {
+                            Ok(_q) => {},
+                            Err(_) => println!("Error:\"{}\"command not found!\n错误:命令\"{}\"不是命令或可执行文件!", mingl, mingl) }
+                    }
+                }
             }
         }
     }
