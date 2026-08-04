@@ -47,7 +47,7 @@ fn main() {
                 operation1.echo(&a);
             },
             "mkdir" | "mk" | "新建文件夹" | "新文件夹" | "创建目录" => {
-                operation1.rm(&a);
+                operation1.mkdir(&a);
             },
             "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" => {
                 operation1.touch(&a);
