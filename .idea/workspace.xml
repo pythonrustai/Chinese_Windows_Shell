@@ -12,9 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +22,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="12" />
+    <option name="cachedIndexableFilesCount" value="10" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/RustRover2026.2/intellij-rust/stdlib-local-copy/1.95.0-bb49e09644e9d4913121673836c14e5bf9b23a5b/library/std/src/fs.rs" root0="SKIP_INSPECTION" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="Amx4WEXL" />
@@ -37,61 +40,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="1.43756461347597E-248" />
-      <entry key="S30" value="1.376669727737249E-82" />
-      <entry key="S60" value="5.360110871471682E-41" />
-      <entry key="M2" value="3.959372527294275E-20" />
-      <entry key="M5" value="1.7760629744559306E-7" />
-      <entry key="M10" value="0.003249457858821107" />
-      <entry key="M15" value="0.08730260248827376" />
-      <entry key="M30" value="2.475689937552054" />
-      <entry key="H1" value="14.682385655186692" />
-      <entry key="H2" value="44.816694448460645" />
-      <entry key="H4" value="111.98800998972992" />
-      <entry key="D1" value="426.21009606315425" />
-      <entry key="W1" value="588.3739901598813" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.0" />
-      <entry key="M2" value="1.0" />
-      <entry key="M5" value="1.0000000093751849" />
-      <entry key="M10" value="1.0001654364016928" />
-      <entry key="M15" value="1.0044812470062736" />
-      <entry key="M30" value="1.154025066951484" />
-      <entry key="H1" value="2.2767453286480634" />
-      <entry key="H2" value="6.56952647379648" />
-      <entry key="H4" value="19.532226507958537" />
-      <entry key="D1" value="93.70784320426131" />
-      <entry key="W1" value="135.04524726409556" />
+      <entry key="S2" value="1.0000000017942132" />
+      <entry key="S5" value="1.0004367400050598" />
+      <entry key="S10" value="1.0334972922270647" />
+      <entry key="S30" value="1.7031832286075805" />
+      <entry key="S60" value="2.6463168509778843" />
+      <entry key="M2" value="3.9196883066981196" />
+      <entry key="M5" value="7.475748805833782" />
+      <entry key="M10" value="13.141341166188385" />
+      <entry key="M15" value="17.700591396308994" />
+      <entry key="M30" value="28.05464989890036" />
+      <entry key="H1" value="42.01016635128565" />
+      <entry key="H2" value="60.665632103992145" />
+      <entry key="H4" value="91.52516978886658" />
+      <entry key="D1" value="395.8822334590602" />
+      <entry key="W1" value="722.1320398727884" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0440717828873998E-136" />
+      <entry key="MS500" value="6.374745152559252E-28" />
+      <entry key="S2" value="1.9438450329062135E-7" />
+      <entry key="S5" value="0.0033284072751563333" />
+      <entry key="S10" value="0.09621480440866877" />
+      <entry key="S30" value="1.0683135999265168" />
+      <entry key="S60" value="2.300913807059938" />
+      <entry key="M2" value="3.8746075754294353" />
+      <entry key="M5" value="6.335466826622163" />
+      <entry key="M10" value="9.231726258806235" />
+      <entry key="M15" value="11.573539282256423" />
+      <entry key="M30" value="16.651378567491836" />
+      <entry key="H1" value="22.872280205271817" />
+      <entry key="H2" value="31.489088199308217" />
+      <entry key="H4" value="45.27366139390827" />
+      <entry key="D1" value="127.54549295694416" />
+      <entry key="W1" value="208.59790109374592" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005083366622820051" />
-      <entry key="MS500" value="0.347720492927497" />
-      <entry key="S2" value="0.7679051348510492" />
-      <entry key="S5" value="0.8997524308629525" />
-      <entry key="S10" value="0.9485528086843412" />
-      <entry key="S30" value="0.9825481405869384" />
-      <entry key="S60" value="0.9912356634962941" />
-      <entry key="M2" value="0.9956081877406865" />
-      <entry key="M5" value="0.9982411419731713" />
-      <entry key="M10" value="1.0025340455128757" />
-      <entry key="M15" value="1.0911797882774914" />
-      <entry key="M30" value="3.629088920529516" />
-      <entry key="H1" value="16.957406880820557" />
-      <entry key="H2" value="51.38253785943209" />
-      <entry key="H4" value="131.51461156614738" />
-      <entry key="D1" value="519.9137590288939" />
-      <entry key="W1" value="723.4183853620523" />
+      <entry key="MS100" value="1.2480194985317691E-5" />
+      <entry key="MS500" value="0.10453079998925786" />
+      <entry key="S2" value="0.5686056630346651" />
+      <entry key="S5" value="0.8012090527540319" />
+      <entry key="S10" value="1.0156786955895754" />
+      <entry key="S30" value="2.7021562525698424" />
+      <entry key="S60" value="4.8938895927610755" />
+      <entry key="M2" value="7.755843010808321" />
+      <entry key="M5" value="13.779832702913696" />
+      <entry key="M10" value="22.341845845893303" />
+      <entry key="M15" value="29.2450670550708" />
+      <entry key="M30" value="44.6835046991525" />
+      <entry key="H1" value="64.8669201278158" />
+      <entry key="H2" value="92.14441132135507" />
+      <entry key="H4" value="136.7915769548457" />
+      <entry key="D1" value="523.4233640161908" />
+      <entry key="W1" value="930.7288272499778" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -131,8 +134,7 @@
   }
 }</component>
   <component name="RunManager" selected="Cargo.Run shell">
-    <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="buildProfileId" value="dev" />
+    <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="run --package shell --bin shell" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
@@ -166,6 +168,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Run shell" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -193,5 +200,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/shell$Run_shell.info" NAME="Run shell 覆盖结果" MODIFIED="1785917039116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="RsCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" CONTEXT_FILE_PATH="C:\Users\vip88\Desktop\shell" />
   </component>
 </project>
