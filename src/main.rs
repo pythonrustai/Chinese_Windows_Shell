@@ -21,23 +21,34 @@ fn main() {
         io::stdout().flush().unwrap();
         let _ = io::stdin().read_line(&mut io);
         mingl = io.trim().to_string().clone();
-        if mingl.len() == 0 {continue;}
+        if mingl.len() == 0 {
+            continue;
+        }
+        let mut ming_line = mingl.clone();
         let a: Vec<&str> = mingl.split_whitespace().collect();
         let mut a_copy = a.clone();
+
         let Operation1 : Operation = Operation{
             user_io : a_copy,
             home_path : &home,
         };
-        match a[0].trim() {
+        let mut Global_Path_1 : Global_Path = Global_Path {
+            home : env::home_dir().unwrap(),
+            ming_l : ming_line.clone(),
+            a : a,
+            line : line1,
+            continue_1: false,
+        };
+        match Global_Path_1.a[0].trim() {
             "切换目录" | "cd" => {
-                Operation1.cd(&Operation1.user_io,continue_1);
-                if continue_1 == true {
+                Operation1.cd(&Operation1.user_io,Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "目录下文件" | "ls" | "dir" => {
-                Operation1.ls(continue_1);
-                if continue_1 == true {
+                Operation1.ls(Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             }
@@ -47,50 +58,58 @@ fn main() {
                 continue;
             }
             "复制" | "cp" | "copy" => {
-                Operation1.cp(&Operation1.user_io , &mingl , continue_1);
-                if continue_1 == true {
+                Operation1.cp(&Operation1.user_io , &mingl , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" | "delete" => {
-                Operation1.rm(&Operation1.user_io , continue_1);
-                if continue_1 == true {
+                Operation1.rm(&Operation1.user_io , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             }
             "echo" | "打印" | "print" | "printf" | "println" | "println!" => {
-                Operation1.echo(&Operation1.user_io , continue_1);
-                if continue_1 == true {
+                Operation1.echo(&Operation1.user_io , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "mkdir" | "mk" | "新建文件夹" | "新文件夹" | "创建目录" => {
-                Operation1.mkdir(&Operation1.user_io , continue_1);
-                if continue_1 == true {
+                Operation1.mkdir(&Operation1.user_io , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" => {
-                Operation1.touch(&Operation1.user_io , continue_1);
-                if continue_1 == true {
+                Operation1.touch(&Operation1.user_io , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "type" | "文件内容" | "cat" => {
-                Operation1.cat(&Operation1.user_io , continue_1);
-                if continue_1 == true {
+                Operation1.cat(&Operation1.user_io , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             _ => {
-                Operation1.x(&Operation1.user_io , continue_1);
-                if continue_1 == true {
+                Operation1.x(&Operation1.user_io , Global_Path_1.continue_1);
+                if Global_Path_1.continue_1 == true {
                     continue;
                 }
             }
         }
     }
+}
+
+struct Global_Path<'global_path>{
+    home : PathBuf,
+    ming_l : String,
+    a : Vec<&'global_path str>,
+    line : String,
+    continue_1: bool,
 }
 
 struct Operation<'operation>{
