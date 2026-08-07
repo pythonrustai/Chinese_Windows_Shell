@@ -4,20 +4,22 @@ use std::path::{Path, PathBuf};
 use std::io;
 use std::process::Command;
 use std::io::Write;
+use std::collections::HashMap;
 
 fn main() {
+    ascii_picture();
     loop {
-        let mut continue_1: bool = false;
         let home = env::home_dir().unwrap();
         let line = env::current_dir();
         let mut line1: String = String::new();
         let mut mingl: String = String::new();
+        let mut guandao: bool = false;
         match line {
             Ok(line) => line1 = line.display().to_string().clone(),
             Err(_) => break,
         }
         let mut io: String = String::new();
-        print!("PS {}>", line1);
+        print!("AT {}>", line1);
         io::stdout().flush().unwrap();
         let _ = io::stdin().read_line(&mut io);
         mingl = io.trim().to_string().clone();
@@ -32,22 +34,26 @@ fn main() {
             user_io : a_copy,
             home_path : &home,
         };
-        let mut Global_Path_1 : Global_Path = Global_Path {
+        let mut Global_Path_1 : GlobalPath = GlobalPath {
             home : env::home_dir().unwrap(),
             ming_l : ming_line.clone(),
-            a : a,
-            line : line1,
+            a,
             continue_1: false,
         };
+        for i in &Global_Path_1.a {
+            if i .to_string()== "|".to_string() {
+                guandao = true;
+            }
+        }
         match Global_Path_1.a[0].trim() {
             "切换目录" | "cd" => {
-                Operation1.cd(&Operation1.user_io,Global_Path_1.continue_1);
+                Operation1.cd(&Operation1.user_io);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "目录下文件" | "ls" | "dir" => {
-                Operation1.ls(Global_Path_1.continue_1);
+                Operation1.ls();
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
@@ -58,57 +64,73 @@ fn main() {
                 continue;
             }
             "复制" | "cp" | "copy" => {
-                Operation1.cp(&Operation1.user_io , &mingl , Global_Path_1.continue_1);
+                Operation1.cp(&Operation1.user_io , &mingl);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" | "delete" => {
-                Operation1.rm(&Operation1.user_io , Global_Path_1.continue_1);
+                Operation1.rm(&Operation1.user_io);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             }
             "echo" | "打印" | "print" | "printf" | "println" | "println!" => {
-                Operation1.echo(&Operation1.user_io , Global_Path_1.continue_1);
+                Operation1.echo(&Operation1.user_io);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "mkdir" | "mk" | "新建文件夹" | "新文件夹" | "创建目录" => {
-                Operation1.mkdir(&Operation1.user_io , Global_Path_1.continue_1);
+                Operation1.mkdir(&Operation1.user_io , &mut Global_Path_1);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" => {
-                Operation1.touch(&Operation1.user_io , Global_Path_1.continue_1);
+                Operation1.touch(&Operation1.user_io);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
             "type" | "文件内容" | "cat" => {
-                Operation1.cat(&Operation1.user_io , Global_Path_1.continue_1);
+                Operation1.cat(&Operation1.user_io);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             },
+            "grep" | "包含" | "包括" => {
+
+            },
             _ => {
-                Operation1.x(&Operation1.user_io , Global_Path_1.continue_1);
+                Operation1.x(Global_Path_1.ming_l);
                 if Global_Path_1.continue_1 == true {
                     continue;
                 }
             }
         }
+        if guandao {}
     }
 }
 
-struct Global_Path<'global_path>{
+fn ascii_picture() {
+    println!("     _      _   _   _____   _____ ");
+    println!("    / \\    | \\ | | |_   _| | ____|");
+    println!("   / _ \\   |  \\| |   | |   |  _|");
+    println!("  / ___ \\  | |\\  |   | |   | |___");
+    println!(" /_/   \\_\\ |_| \\_|   |_|   |_____|\n");
+    println!("                    ____    _   _   _____   _       _     ");
+    println!("                   / ___|  | | | | | ____| | |     | |    ");
+    println!("                   \\___ \\  | |_| | |  _|   | |     | |");
+    println!("                    ___) | |  _  | | |___  | |___  | |___");
+    println!("                   |____/  |_| |_| |_____| |_____| |_____|\n");
+}
+
+struct GlobalPath<'global_path>{
     home : PathBuf,
     ming_l : String,
     a : Vec<&'global_path str>,
-    line : String,
     continue_1: bool,
 }
 
@@ -117,12 +139,11 @@ struct Operation<'operation>{
     home_path: &'operation PathBuf,
 }
 impl<'operation>Operation<'operation>{
-    fn cd (&self , user_io : &Vec<&str>,mut continue_1 : bool) {
+    fn cd (&self , user_io : &Vec<&str>) {
         if user_io.len() == 1 {
             let mut  temp = env::home_dir();
-            let mut temp1 = String::new();
             match &mut temp {
-                Some(temp) => {
+                Some(_) => {
                 },
                 None => {}
             }
@@ -130,42 +151,53 @@ impl<'operation>Operation<'operation>{
                Ok(_) => {},
                Err(q) => {
                    eprintln!("切换目录失败：{}", q);
-                   continue_1 = true;
+                   return;
                },
-           };
+           }
         } else {
             let full_path = user_io[1..].join(" ");
             match env::set_current_dir(Path::new(&full_path)) {
                 Ok(_) => {}
                 Err(q) => {
                     eprintln!("切换目录失败：{}", q);
-                    continue_1 = true;
+                    return;
                 }
             }
         }
     }
 
-    fn ls(&self,mut continue_1 : bool) {
+    fn ls(&self) -> String {
         let ls = fs::read_dir(".");
+        let mut w : String = String::new();
         match ls {
             Ok(e) => {
                 println!("==========文件夹下文件:==========");
                 for i in e {
-                    let en = i.unwrap();
-                    println!("{}", en.file_name().to_string_lossy());
+                    match i {
+                        Ok(e) => {
+                            println!("{}", e.path().display());
+                            w = e.path().display().to_string().clone();
+
+                        }
+                        Err(_) => {
+                            eprintln!("无法读取文件夹，请检查权限和路径");
+                            return Default::default();}
+                    }
                 }
+                w
             }
-            Err(_) => {eprintln!("无法读取文件夹，请检查权限和路径");
-                continue_1 = true;
+            Err(_) => {
+                eprintln!("无法读取文件夹，请检查权限和路径");
+                Default::default()
             }
         }
     }
 
-    fn cp(&self , user_io : &Vec<&str> , mingl : &String , mut continue_1 : bool) {
+    fn cp(&self , user_io : &Vec<&str> , mingl : &String) {
         let s: Vec < &str > = mingl.split_whitespace().collect();
         if user_io.len() < 3 {
             eprintln!("命令\"{}\"无效!", s[0].to_string());
-            continue_1 = true;
+            return;
         }
         match fs::copy(s[1].to_string(), s[2].to_string()) {
             Ok(_) =>{
@@ -177,43 +209,76 @@ impl<'operation>Operation<'operation>{
             },
             Err(_) => {
                 println!("无法复制{}", s[1].to_string());
-                continue_1 = true;
+                return;
             }
         }
     }
 
-    fn rm(&self , user_io : &Vec<&str> , mut continue_1 : bool) {
+    fn rm(&self , user_io : &Vec<&str>) {
         if user_io.len() < 2 {
             eprintln!("命令\"{}\"无效!", user_io[0].to_string());
-            continue_1 = true;
+            return;
         }
         println!("您确定要删除{}吗?(Y/n)", user_io[1].to_string());
         let mut temp = String::new();
-        let _ = io::stdin().read_line(&mut temp).expect("读取确认输入失败");
+        let _ = io::stdin().read_line(&mut temp);
         if temp.trim() == "Y" {
-            if Path::is_dir(std::path::Path::new(user_io[1])) {
-                fs::remove_dir_all(user_io[1]).unwrap();
-                println!("成功删除文件夹\"{}\",祝你好运!", user_io[1].to_string());
-            } else if Path::is_file(std::path::Path::new(user_io[1])) {
-                fs::remove_file(user_io[1]).unwrap();
-                println!("成功删除文件\"{}\",祝你好运!", user_io[1].to_string());
+            let mut temp1: bool = true;
+            if Path::is_dir(Path::new(user_io[1])) {
+                match fs::remove_dir_all(user_io[1]) {
+                    Ok(_) => {},
+                    Err(_) => {
+                        println!("文件夹\"{}\"无法删除!", user_io[1].to_string());
+                        temp1 = false;
+                    }
+                }
+                if temp1{
+                    println!("成功删除文件夹\"{}\",祝你好运!", user_io[1].to_string());
+                }
+            } else if Path::is_file(Path::new(user_io[1])) {
+               match fs::remove_file(user_io[1]) {
+                   Ok(_) =>{} ,
+                   Err(_) => { println!("文件\"{}\"", user_io[1].to_string());
+                       temp1 = false;
+                   },
+               }
+                if temp1{
+                    println!("成功删除文件\"{}\",祝你好运!", user_io[1].to_string());
+                }
+            } else {
+                println!("\"{}\" 不存在或无法访问", user_io[1]);
             }
         }
     }
 
-    fn echo(&self , user_io : &Vec<&str> , mut continue_1 : bool) {
+    fn echo(&self , user_io : &Vec<&str>) {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0].to_string());
-            continue_1 = true;
+            return;
         }
         let temp: String = user_io[1..].join(" ");
         println!("{:#}", temp.as_str());
     }
 
-    fn mkdir(&self , user_io : &Vec<&str> , mut continue_1 : bool) {
+    fn mkdir(&self , user_io : &Vec<&str> , GlobalPath_1 : &mut GlobalPath) {
+        let mut hhome = env::current_dir();
+        let mut hhhome: PathBuf;
+        match hhome {
+            Ok(q) => { hhhome = q;},
+            Err(_) => {
+                eprintln!("警告：创建目录后无法回到原目录!会回到用户目录!");
+                match env::home_dir() {
+                    Some(q) => hhhome = q,
+                    None => {
+                        eprintln!("无法获取用户目录，操作取消");
+                        return;
+                    }
+                };
+            }
+        };
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0].to_string());
-            continue_1 = true;
+            return;
         }
         if user_io.len() == 2 {
             match fs::create_dir(user_io[1]) {
@@ -222,7 +287,7 @@ impl<'operation>Operation<'operation>{
                 },
                 Err(_) => {
                     eprintln!("文件夹\"{}\"创建失败", user_io[1].to_string());
-                    continue_1 = true;}
+                    return;}
             };
         }
         if user_io.len() > 2 {
@@ -236,53 +301,57 @@ impl<'operation>Operation<'operation>{
                     },
                     Err(_) => {
                         eprintln!("文件夹\"{}\"创建失败", user_io[m].to_string());
-                        continue_1 = true;
+                        return;
                     }
                 }
                 let _ = env::set_current_dir(Path::new(&user_io[m]));
                 m += 1;
             }
         }
+        match env::set_current_dir(&hhhome) {
+            Ok(_) => {GlobalPath_1.home = hhhome;}
+            Err(q) => {
+                eprintln!("无法回到上级目录：{}!", q);
+                return;
+            }
+        }
     }
 
-    fn touch(&self , user_io : &Vec<&str> , mut continue_1 : bool) {
+    fn touch(&self , user_io : &Vec<&str>) {
         if user_io.len() < 2 {
             eprintln!("命令\"{}\"无效!", user_io[0].to_string());
-            continue_1 = true;
+            return;
         }
         if user_io[0] == "touch" || user_io[0] == "新建文件" {
             let _ = fs::File::create(user_io[1]);
         }
     }
 
-    fn cat(&self , user_io : &Vec<&str> , mut continue_1 : bool) {
+    fn cat(&self , user_io : &Vec<&str>) {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0].to_string());
-            continue_1 = true;
+            return;
         }
-        if user_io[1] == "nul" && user_io[2] == ">" {
+        if user_io[1] == "nul" && user_io[2] == ">" && (user_io.len() >= 4) {
             let _ = fs::File::create(user_io[3]);
         }
         let q = fs::read_to_string(user_io[1]);
         match &q {
             Ok(q) => { println!("{}", q);},
             Err(_) => {println!("\"{}\"无法打开", user_io[1].to_string());
-            continue_1 = true;
+            return;
             }
         }
     }
 
-    fn x(&self , user_io : &Vec<&str> , mut continue_1 : bool) {
-        let temp = &user_io[0];
-            if std::path::Path::new(&temp).exists() {
-                let q= Command::new("cmd").args(["/c", user_io[0]]).spawn();
-                match &q {
-                    Ok(q) => {},
-                    Err(_) => {
-                        eprintln!("Error:\"{}\"command not found!\n错误:命令\"{}\"不是命令或可执行文件!", user_io[0], user_io[0]);
-                        continue_1 = true;
-                    }
-                }
+    fn x(&self , mingl : String) {
+        let mut temp: String = String::new();
+        for i in mingl.chars() {
+            temp.push(i);
+        }
+
+            if Path::new(&temp).exists() {
+                let _ = Command::new("cmd").args(["/c", temp.as_str()]).spawn();
         }
     }
 }
