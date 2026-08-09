@@ -77,8 +77,8 @@ fn main() {
             },
              "文件内容" | "cat" => {
                 Operation1.cat(&Operation1.user_io);
-            },
-                                                                                                    "grep" | "包含`" | "包括" => {
+            }, 
+            "grep" | "包含`" | "包括" => {
                 Operation1.grep(&Operation1.user_io);
             },
             _ => {
@@ -240,20 +240,7 @@ impl<'operation>Operation<'operation>{
     }
 
     fn mkdir(&self , user_io : &Vec<&str> , GlobalPath_1 : &mut GlobalPath) {
-        if user_io.len() >= 4 {
-            if user_io[0] == "type" &&user_io[1] == "nul" && user_io[2] == ">" {
-                let temp = fs::create_dir(user_io[3]);
-                match &temp {
-                    Ok(_) => {
-                        println!("{}", user_io[3]);
-                    },
-                    Err(_) => {
-                        println!("\"{}\"无法创建", user_io[3].to_string());
-                        return;
-                    }
-                }
-            }
-        }
+
         let mut hhome = env::current_dir();
         let mut hhhome: PathBuf;
         match hhome {
@@ -318,6 +305,20 @@ impl<'operation>Operation<'operation>{
         if user_io[0] == "touch" || user_io[0] == "新建文件" {
             let _ = fs::File::create(user_io[1]);
         }
+        if user_io.len() == 4 {
+            if user_io[0] == "type" &&user_io[1] == "nul" && user_io[2] == ">" {
+                let temp = fs::File::create(user_io[3]);
+                match &temp {
+                    Ok(_) => {
+                        println!("{}", user_io[3]);
+                    },
+                    Err(_) => {
+                        println!("\"{}\"无法创建", user_io[3].to_string());
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     fn cat(&self , user_io : &Vec<&str>) {
@@ -325,14 +326,18 @@ impl<'operation>Operation<'operation>{
             println!("命令\"{}\"无效!", user_io[0].to_string());
             return;
         }
-        let q = fs::read_to_string(user_io[2]);
-        match &q {
-            Ok(q) => { println!("{}", q);},
-            Err(_) => {println!("\"{}\"无法打开", user_io[2].to_string());
-            return;
+        if Path::new(user_io[1]).is_file() {
+            let q = fs::read_to_string(user_io[1]);
+            match &q {
+                Ok(q) => {
+                    println!("{}", q);
+                },
+                Err(_) => {println!("\"{}\"无法打开", user_io[1].to_string());
+                    return;
+                }
             }
+            return;
         }
-        return;
     }
 
     fn grep(&self , user_io : &Vec<&str>) -> Grep{
