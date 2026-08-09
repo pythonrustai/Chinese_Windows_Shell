@@ -49,17 +49,11 @@ fn main() {
         }
         match Global_Path_1.a[0].trim() {
             "切换目录" | "cd" => {
-                Operation1.cd(&Operation1.user_io);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
+                Operation1.cd(&Operation1.user_io)
             },
             "目录下文件" | "ls" | "dir" => {
                 Operation1.ls();
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
-            }
+            },
             "退出" | "exit" | "quit" => break,
             "当前目录" | "pwd" => {
                 println!("{}", env::current_dir().unwrap().display());
@@ -67,49 +61,28 @@ fn main() {
             }
             "复制" | "cp" | "copy" => {
                 Operation1.cp(&Operation1.user_io , &mingl);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
             },
             "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" | "delete" => {
                 Operation1.rm(&Operation1.user_io);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
-            }
+            },
             "echo" | "打印" | "print" | "printf" | "println" | "println!" => {
                 Operation1.echo(&Operation1.user_io);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
             },
             "mkdir" | "mk" | "新建文件夹" | "新文件夹" | "创建目录" => {
                 Operation1.mkdir(&Operation1.user_io , &mut Global_Path_1);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
             },
             "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" | "type" => {
                 Operation1.touch(&Operation1.user_io);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
             },
              "文件内容" | "cat" => {
                 Operation1.cat(&Operation1.user_io);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
             },
-            "grep" | "包含" | "包括" => {
-
+                                                                                                    "grep" | "包含`" | "包括" => {
+                Operation1.grep(&Operation1.user_io);
             },
             _ => {
                 Operation1.x(Global_Path_1.ming_l);
-                if Global_Path_1.continue_1 == true {
-                    continue;
-                }
             }
         }
         if guandao {}
@@ -133,6 +106,11 @@ struct GlobalPath<'global_path>{
     ming_l : String,
     a : Vec<&'global_path str>,
     continue_1: bool,
+}
+
+struct Grep {
+    exit_code : u8,
+    word : String,
 }
 
 struct Operation<'operation>{
@@ -347,14 +325,67 @@ impl<'operation>Operation<'operation>{
             println!("命令\"{}\"无效!", user_io[0].to_string());
             return;
         }
-        let q = fs::read_to_string(user_io[1]);
+        let q = fs::read_to_string(user_io[2]);
         match &q {
             Ok(q) => { println!("{}", q);},
-            Err(_) => {println!("\"{}\"无法打开", user_io[1].to_string());
+            Err(_) => {println!("\"{}\"无法打开", user_io[2].to_string());
             return;
             }
         }
         return;
+    }
+
+    fn grep(&self , user_io : &Vec<&str>) -> Grep{
+        if user_io.len() <= 2 {
+            eprintln!("命令无效!");
+            let GrepErr: Grep = Grep{
+                exit_code : 0 ,
+                word : String::new() ,
+            };
+            GrepErr
+        }
+        else {
+            let mut back: String = String::new();
+            let temp: String = user_io[2].to_string();
+            let mut files: String = String::new();
+            match fs::read_to_string(&temp) {
+                Ok(q) => {
+                    files = q;
+                    let ffiles: Vec<String> = files.split("\n").map(|ffiles| ffiles.to_string()).collect();
+                    for i in &ffiles {
+                        if i.contains(&user_io[1].to_string()) {
+                            back.push_str(i);
+                            back.push_str("\n");
+                        }
+                    }
+                    if back == String::new() {
+                        let GrepNew: Grep = Grep{
+                            exit_code : 1 ,
+                            word : String::new() ,
+                        };
+                        println!("没有找到\"{}\"" , user_io[1].to_string());
+                        GrepNew
+                    }
+                    else {
+                        let GrepYes: Grep = Grep{
+                            word : back,
+                            exit_code : 0 ,
+                        };
+                        println!("{}", GrepYes.word);
+                        GrepYes
+                    }
+                },
+                Err(_) => {
+                    println!("命令\"{}\"无效!", user_io[0].to_string());
+                    let GrepErr: Grep = Grep{
+                        exit_code : 0 ,
+                        word : String::new() ,
+                    };
+                    println!("没有找到\"{}\"" , user_io[1].to_string());
+                    GrepErr
+                }
+            }
+        }
     }
 
     fn x(&self , mingl : String) {

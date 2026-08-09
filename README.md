@@ -7,7 +7,7 @@
 exe在路径shell\target\debug\shell.exe ,双击运行即可
 
 ## 目前支持命令
-目前此shell较为简陋，仅支持 cd,ls,pwd,copy,exit,echo,pwd等，后续我会逐步添加命令，以达到兼容CMD的效果
+目前此shell是一个简单的shell，仅支持 cd,ls,pwd,copy,exit,del,remove,type,mkdir,touch,echo,cat等，后续我会逐步添加命令，以达到兼容CMD的效果
 
 ## 命令指南
 cd: 输入"cd"或"切换目录" ，再空格，再输入路径。 
@@ -45,7 +45,7 @@ Double-click the `.exe` file to launch the program directly.
 
 ## Supported Commands (Current Status)
 This Shell is still in the early development stage with limited features.
-It currently supports basic commands: `cd`, `ls`, `pwd`, `copy`, `exit`,`del`.
+It currently supports basic commands: `cd`, `ls`, `pwd`, `copy`, `exit`,`del`,`type`,`mkdir`,`touch`,`remove`,`echo`,`cat`.
 More commands will be added iteratively in subsequent updates to achieve full compatibility with the official Windows CMD.
 
 ## Command Manual
