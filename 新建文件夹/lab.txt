@@ -1,5 +1,0 @@
-Hello World！
-我是科创
-这是我的参赛作品
-名字是Chinese_Windows_Shell
-展示特殊字符€£¥©é→—
