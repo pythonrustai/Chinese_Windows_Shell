@@ -26,7 +26,7 @@ remove:输入"del"或"rm"或"rmdir"或"remove"或"删除"，空格，加上路�
 
 type: 输入"type"或"文件内容"，空格，加上要打印的文件路径，会打印出该文件的内容。
 
-mkdir: 输入"mkdir"或"创建目录"或"新建文件夹"新文件夹”或"创建目录"，空格，加上要创建的目录路径，会创建该目录。
+mkdir: 输入"mkdir"或"创建目录"或"新建文件夹"新文件夹”或"创建目录"，空格，加上要创建的目录路径，会创建该目录。创建嵌套文件夹时，会自动创建所有中间目录。举例：“mkdir a/b/c/d”会创建目录a/b/c/d。
 
 touch: 输入"touch"或"创建文件"或"新建文件"或"创建文件"或"New-Item"或"type nul >"或"ni"或"新文件" ，空格，加上要创建的文件路径，会创建该文件。
 
@@ -89,7 +89,7 @@ Function: Print the content of the specified file on the terminal.
 ### 9. mkdir (Create Directory)
 Usage: Type `mkdir` or the Chinese word `创建目录` + space + directory path
 
-Function: Create a new directory at the specified path.
+Function: Create a new directory at the specified path. If the directory path is nested, it will automatically create all intermediate directories. Example: `mkdir a/b/c/d` will create the directory `a/b/c/d`.
 
 ### 10. touch (Create File)
 Usage: Type `touch` or the Chinese word `创建文件` + space + file path
