@@ -127,7 +127,7 @@ impl<'operation>Operation<'operation>{
            match env::set_current_dir(&self.home_path) {
                Ok(_) => {},
                Err(q) => {
-                   eprintln!("\x1b[31m切换目录失败：{}\x1b[0m", q);
+                   eprintln!("\x1b[1;31m切换目录失败：{}\x1b[0m", q);
                    return;
                },
            }
@@ -136,7 +136,7 @@ impl<'operation>Operation<'operation>{
             match env::set_current_dir(Path::new(&full_path)) {
                 Ok(_) => {}
                 Err(q) => {
-                    eprintln!("\x1b[31m切换目录失败：{}\x1b[0m", q);
+                    eprintln!("\x1b[1;31m切换目录失败：{}\x1b[0m", q);
                     return;
                 }
             }
@@ -157,14 +157,14 @@ impl<'operation>Operation<'operation>{
 
                         }
                         Err(_) => {
-                            eprintln!("\x1b[31m无法读取文件夹，请检查权限和路径\x1b[0m");
+                            eprintln!("\x1b[1;31m无法读取文件夹，请检查权限和路径\x1b[0m");
                             return Default::default();}
                     }
                 }
                 w
             }
             Err(_) => {
-                eprintln!("\x1b[31m无法读取文件夹，请检查权限和路径\x1b[0m");
+                eprintln!("\x1b[1;31m无法读取文件夹，请检查权限和路径\x1b[0m");
                 Default::default()
             }
         }
@@ -173,19 +173,19 @@ impl<'operation>Operation<'operation>{
     fn cp(&self , user_io : &Vec<&str> , input : &String) {
         let s: Vec < &str > = input.split_whitespace().collect();
         if user_io.len() < 3 {
-            eprintln!("\x1b[31m命令\"{}\"无效!\x1b[0m", s[0].to_string());
+            eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", s[0].to_string());
             return;
         }
         if Path::new(s[1]).is_dir() {
-            eprintln!("\x1b[31m你的复制对象\"{}\"是一个文件夹\x1b[0m", s[1].to_string());
+            eprintln!("\x1b[1;31m你的复制对象\"{}\"是一个文件夹\x1b[0m", s[1].to_string());
             return;
         }
         match fs::copy(s[1].to_string(), s[2].to_string()) {
             Ok(_) =>{
-                println!("{}已保存在{}", s[1].to_string(), s[2].to_string())
+                println!("\x1b[1;32m{}已保存在{}", s[1].to_string(), s[2].to_string())
             },
             Err(_) => {
-                println!("无法复制{}", s[1].to_string());
+                eprintln!("\x1b[1;31m无法复制{}", s[1].to_string());
                 return;
             }
         }
@@ -193,24 +193,24 @@ impl<'operation>Operation<'operation>{
 
     fn rm(&self , user_io : &Vec<&str>) {
         if user_io.len() < 2 {
-            eprintln!("\x1b[31m命令\"{}\"无效!\x1b[0m", user_io[0].to_string());
+            eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", user_io[0].to_string());
             return;
         }
-        println!("\x1b[31m您确定要删除{}吗?(Y/n)", user_io[1].to_string());
+        println!("\x1b[1;31m您确定要删除{}吗?(Y/n)", user_io[1].to_string());
         let mut temp = String::new();
-        let _ = io::stdin().read_line(&mut temp);
+        io::stdin().read_line(&mut temp).expect("");
         if temp.trim() == "Y" {
             let mut temp1: bool = true;
             if Path::is_dir(Path::new(user_io[1])) {
                 match fs::remove_dir_all(user_io[1]) {
                     Ok(_) => {},
                     Err(_) => {
-                        eprintln!("\x1b[31m文件夹\"{}\"无法删除!\x1b[0m", user_io[1].to_string());
+                        eprintln!("\x1b[1;31m文件夹\"{}\"无法删除!\x1b[0m", user_io[1].to_string());
                         temp1 = false;
                     }
                 }
                 if temp1{
-                    println!("成功删除文件夹\"{}\",祝你好运!", user_io[1].to_string());
+                    println!("\x1b[1;32m成功删除文件夹\"{}\",祝你好运!\x1b[0m", user_io[1].to_string());
                 }
             } else if Path::is_file(Path::new(user_io[1])) {
                match fs::remove_file(user_io[1]) {
@@ -251,7 +251,7 @@ impl<'operation>Operation<'operation>{
                     println!("文件夹\"{}\"创建成功", user_io[i].to_string());
                 },
                 Err(_) => {
-                    eprintln!("\x1b[31m文件夹\"{}\"创建失败\x1b[0m", user_io[i].to_string());
+                    eprintln!("\x1b[1;31m文件夹\"{}\"创建失败\x1b[0m", user_io[i].to_string());
                     return;}
             }
         }
@@ -259,7 +259,7 @@ impl<'operation>Operation<'operation>{
 
     fn touch(&self , user_io : &Vec<&str>) {
         if user_io.len() < 2 {
-            eprintln!("\x1b[31m命令\"{}\"无效!\x1b[0m", user_io[0]);
+            eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", user_io[0]);
             return;
         }
         if user_io[0] == "touch" || user_io[0] == "新建文件" || user_io[0] == "ni"{
@@ -291,10 +291,10 @@ impl<'operation>Operation<'operation>{
             let q = fs::read_to_string(user_io[1]);
             match &q {
                 Ok(q) => {
-                    eprintln!("\x1b[31m{}\x1b[0m", q);
+                    eprintln!("\x1b[1;31m{}\x1b[0m", q);
                 },
                 Err(_) => {
-                    eprintln!("\x1b[31m\"{}\"无法打开\x1b[0m", user_io[1].to_string());
+                    eprintln!("\x1b[1;31m\"{}\"无法打开\x1b[0m", user_io[1].to_string());
                     return;
                 }
             }
@@ -330,7 +330,7 @@ impl<'operation>Operation<'operation>{
                             exit_code : 1 ,
                             word : String::new() ,
                         };
-                        eprintln!("\x1b[31m没有找到\"{}\"\x1b[0m" , user_io[1].to_string());
+                        eprintln!("\x1b[1;31m没有找到\"{}\"\x1b[0m" , user_io[1].to_string());
                         grep_new
                     }
                     else {
@@ -343,12 +343,12 @@ impl<'operation>Operation<'operation>{
                     }
                 },
                 Err(_) => {
-                    eprintln!("\x1b[31m命令\"{}\"无效!\x1b[0m", user_io[0].to_string());
+                    eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", user_io[0].to_string());
                     let grep_err: Grep = Grep{
                         exit_code : 0 ,
                         word : String::new() ,
                     };
-                    eprintln!("\x1b[31m没有找到\"{}\"\x1b[0m" , user_io[1].to_string());
+                    eprintln!("\x1b[1;31m没有找到\"{}\"\x1b[0m" , user_io[1].to_string());
                     grep_err
                 }
             }
@@ -364,7 +364,7 @@ impl<'operation>Operation<'operation>{
             let _ = Command::new("cmd").args(["/c", temp.as_str()]).spawn();
         }
         else {
-            eprintln!("\x1b[31m未找到命令:\"{}\",此命令无效!\x1b[0m", &input);
+            eprintln!("\x1b[1;31m未找到命令:\"{}\",此命令无效!\x1b[0m", &input);
         }
     }
 }

@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -20,6 +19,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="228" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="Git.Settings">
@@ -38,60 +40,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000011522792" />
-      <entry key="S2" value="1.0087246697257126" />
-      <entry key="S5" value="1.2934940333782268" />
-      <entry key="S10" value="2.113393355533155" />
-      <entry key="S30" value="4.727932318582191" />
-      <entry key="S60" value="8.020498918763732" />
-      <entry key="M2" value="13.98727577235719" />
-      <entry key="M5" value="26.561661633435147" />
-      <entry key="M10" value="38.62501012524191" />
-      <entry key="M15" value="46.176280188239176" />
-      <entry key="M30" value="59.212209173062064" />
-      <entry key="H1" value="74.14181153202156" />
-      <entry key="H2" value="95.44209254733337" />
-      <entry key="H4" value="137.30316325393457" />
-      <entry key="D1" value="537.3722209656913" />
-      <entry key="W1" value="1161.4069256684916" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000005622842" />
+      <entry key="S5" value="1.0002026227700571" />
+      <entry key="S10" value="1.0172716752164672" />
+      <entry key="S30" value="1.8136110386463717" />
+      <entry key="S60" value="4.433743989941081" />
+      <entry key="M2" value="10.456902593718647" />
+      <entry key="M5" value="24.67163090866903" />
+      <entry key="M10" value="38.71736058694245" />
+      <entry key="M15" value="47.42572268379926" />
+      <entry key="M30" value="62.1447319598312" />
+      <entry key="H1" value="78.22167470049048" />
+      <entry key="H2" value="100.21229916296659" />
+      <entry key="H4" value="142.42633731257052" />
+      <entry key="D1" value="542.8104458092769" />
+      <entry key="W1" value="1167.2340624261549" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="5.0032766966885704E-266" />
-      <entry key="MS500" value="8.724153848783038E-54" />
-      <entry key="S2" value="6.582323656709725E-14" />
-      <entry key="S5" value="7.599514246577374E-6" />
-      <entry key="S10" value="0.0038531726669995825" />
-      <entry key="S30" value="0.24820095195608935" />
-      <entry key="S60" value="0.7044495818574926" />
-      <entry key="M2" value="1.1995346286093513" />
-      <entry key="M5" value="1.9728417755134713" />
-      <entry key="M10" value="3.5396375805209677" />
-      <entry key="M15" value="5.17804276486599" />
-      <entry key="M30" value="9.340722512243364" />
-      <entry key="H1" value="16.260888284654225" />
-      <entry key="H2" value="28.20896026230074" />
-      <entry key="H4" value="51.99801840051043" />
-      <entry key="D1" value="224.5400797846341" />
-      <entry key="W1" value="428.546116913416" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.0107866521752704E-131" />
+      <entry key="S2" value="2.159550074271567E-33" />
+      <entry key="S5" value="1.22230461568484E-13" />
+      <entry key="S10" value="4.886695521770195E-7" />
+      <entry key="S30" value="0.012470074437400445" />
+      <entry key="S60" value="0.1579002134903283" />
+      <entry key="M2" value="0.5679095745228465" />
+      <entry key="M5" value="1.462846698787191" />
+      <entry key="M10" value="3.0479797513981106" />
+      <entry key="M15" value="4.686707174771447" />
+      <entry key="M30" value="8.886516752389685" />
+      <entry key="H1" value="15.860607317142263" />
+      <entry key="H2" value="27.85959844301605" />
+      <entry key="H4" value="51.67502317098734" />
+      <entry key="D1" value="224.30701384986048" />
+      <entry key="W1" value="428.48254317839246" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8827029962906549" />
-      <entry key="MS500" value="0.9753554626516198" />
-      <entry key="S2" value="1.002453532999531" />
-      <entry key="S5" value="1.290320834239975" />
-      <entry key="S10" value="2.1142448898994384" />
-      <entry key="S30" value="4.961692466655154" />
-      <entry key="S60" value="8.699713134597376" />
-      <entry key="M2" value="15.158432355736087" />
-      <entry key="M5" value="28.51049820600035" />
-      <entry key="M10" value="42.14422912799113" />
-      <entry key="M15" value="51.33614597995187" />
-      <entry key="M30" value="68.53895991026589" />
-      <entry key="H1" value="90.39212028304873" />
-      <entry key="H2" value="123.64273354154255" />
-      <entry key="H4" value="189.29089796940934" />
-      <entry key="D1" value="761.8920962917607" />
-      <entry key="W1" value="1589.947623769751" />
+      <entry key="MS100" value="1.9741191171454107E-11" />
+      <entry key="MS500" value="0.007228940844045723" />
+      <entry key="S2" value="0.2915873430030068" />
+      <entry key="S5" value="0.6110134884365025" />
+      <entry key="S10" value="0.7987287833291014" />
+      <entry key="S30" value="1.7439387895444995" />
+      <entry key="S60" value="4.541459119952765" />
+      <entry key="M2" value="10.987071809567906" />
+      <entry key="M5" value="26.106182787165583" />
+      <entry key="M10" value="41.742347267883154" />
+      <entry key="M15" value="52.09233129222782" />
+      <entry key="M30" value="71.01611269147301" />
+      <entry key="H1" value="94.07103581769765" />
+      <entry key="H2" value="128.0632164847124" />
+      <entry key="H4" value="194.0909078975708" />
+      <entry key="D1" value="767.0972373284897" />
+      <entry key="W1" value="1595.7111820460004" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -109,6 +111,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Cargo.Run shell.executor": "Run",
+    "Cargo.Test shell.executor": "Run",
     "CidrDebugProfileConversion": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.GoLinterPluginOnboardingV2": "true",
@@ -141,8 +144,9 @@
       <command value="cmd" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo.Run shell">
     <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package shell --bin shell" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
@@ -176,6 +180,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Run shell" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
