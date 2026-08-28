@@ -11,10 +11,12 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="">
+    <list default="true" id="5c4ff07b-f703-456b-8196-71bb5c30574e" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/shell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shell.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_Shell.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,17 +24,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="11" />
+    <option name="cachedIndexableFilesCount" value="14" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/RustRover2026.2/intellij-rust/stdlib-local-copy/1.95.0-bb49e09644e9d4913121673836c14e5bf9b23a5b/library/std/src/fs.rs" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MacroExpansionManager">
-    <option name="directoryName" value="Amx4WEXL" />
+    <option name="directoryName" value="OEerOX68" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -42,111 +41,96 @@
     <decayedCancelled>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="8.527048769508386E-163" />
-      <entry key="S30" value="1.998599644209223E-54" />
-      <entry key="S60" value="3.3189230884374284E-27" />
-      <entry key="M2" value="1.9070181678711684E-13" />
-      <entry key="M5" value="4.5214473240560716E-5" />
-      <entry key="M10" value="0.029652499339536613" />
-      <entry key="M15" value="0.25926165052872907" />
-      <entry key="M30" value="2.2741619350607274" />
-      <entry key="H1" value="6.887016920733917" />
-      <entry key="H2" value="16.14483226790115" />
-      <entry key="H4" value="47.42645417114854" />
-      <entry key="D1" value="453.7660691605314" />
-      <entry key="W1" value="1176.7827500175242" />
+      <entry key="S2" value="1.7154689210847272E-95" />
+      <entry key="S5" value="3.1394020542607666E-38" />
+      <entry key="S10" value="3.935188784695178E-19" />
+      <entry key="S30" value="2.1394128737830983E-6" />
+      <entry key="S60" value="0.0032704781430914773" />
+      <entry key="M2" value="0.1290588929475335" />
+      <entry key="M5" value="1.300230795215637" />
+      <entry key="M10" value="3.5347473783425882" />
+      <entry key="M15" value="5.749077311416055" />
+      <entry key="M30" value="10.941705438839506" />
+      <entry key="H1" value="16.17371466492573" />
+      <entry key="H2" value="20.001511545071267" />
+      <entry key="H4" value="22.332739485375672" />
+      <entry key="D1" value="24.530009722868442" />
+      <entry key="W1" value="24.932205767027266" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.0" />
-      <entry key="M2" value="1.0000000000000848" />
-      <entry key="M5" value="1.0000188075752279" />
-      <entry key="M10" value="1.012051952518716" />
-      <entry key="M15" value="1.1047080907785265" />
-      <entry key="M30" value="1.9134026771130095" />
-      <entry key="H1" value="3.734313597735231" />
-      <entry key="H2" value="7.037673872713123" />
-      <entry key="H4" value="19.098432615483294" />
-      <entry key="D1" value="188.80412598420162" />
-      <entry key="W1" value="436.19969976795653" />
+      <entry key="MS100" value="1.0000000004592504" />
+      <entry key="MS500" value="1.0135646910562663" />
+      <entry key="S2" value="1.3412734294712916" />
+      <entry key="S5" value="1.6504905484403913" />
+      <entry key="S10" value="1.806529942680612" />
+      <entry key="S30" value="1.9308367013157968" />
+      <entry key="S60" value="1.9648002507276567" />
+      <entry key="M2" value="1.9845316660300982" />
+      <entry key="M5" value="2.1961139542198334" />
+      <entry key="M10" value="3.011116138208157" />
+      <entry key="M15" value="3.8585552419460765" />
+      <entry key="M30" value="5.67028411127617" />
+      <entry key="H1" value="7.345120939798926" />
+      <entry key="H2" value="8.516176967889812" />
+      <entry key="H4" value="9.213648152262843" />
+      <entry key="D1" value="9.862251346952672" />
+      <entry key="W1" value="9.980150549832516" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.003747125466114312" />
-      <entry key="MS500" value="0.32714451786375254" />
-      <entry key="S2" value="0.7562839986419809" />
-      <entry key="S5" value="0.8942809195294092" />
-      <entry key="S10" value="0.9456642742164945" />
-      <entry key="S30" value="0.9815497741228452" />
-      <entry key="S60" value="0.9907319385801818" />
-      <entry key="M2" value="0.9953551821238117" />
-      <entry key="M5" value="0.998203346548175" />
-      <entry key="M10" value="1.0407280083739543" />
-      <entry key="M15" value="1.3630911050906889" />
-      <entry key="M30" value="4.186159634260489" />
-      <entry key="H1" value="10.619541701685662" />
-      <entry key="H2" value="23.180464627161218" />
-      <entry key="H4" value="66.52126691835949" />
-      <entry key="D1" value="642.5543231954493" />
-      <entry key="W1" value="1612.9771127986364" />
+      <entry key="MS100" value="0.019915009802107163" />
+      <entry key="MS500" value="0.4599174344531534" />
+      <entry key="S2" value="1.0562331404858187" />
+      <entry key="S5" value="1.4840818286315551" />
+      <entry key="S10" value="1.7095370129578626" />
+      <entry key="S30" value="1.8947615604789865" />
+      <entry key="S60" value="1.9495098968877687" />
+      <entry key="M2" value="2.104055760772621" />
+      <entry key="M5" value="3.4904373541481863" />
+      <entry key="M10" value="6.538762739495887" />
+      <entry key="M15" value="9.599922479634385" />
+      <entry key="M30" value="16.60483916086503" />
+      <entry key="H1" value="23.51369191127184" />
+      <entry key="H2" value="28.51455934036443" />
+      <entry key="H4" value="31.54465567850731" />
+      <entry key="D1" value="34.39194633216555" />
+      <entry key="W1" value="34.912310675275485" />
     </decayedShown>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="3HCyKIW7F4bFqnSF4BP249g09n2" />
+  <component name="ProjectId" id="3IUj7AvbuajBxxCx39w7dv6Z5PQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Cargo.Run shell.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test shell.executor&quot;: &quot;Run&quot;,
     &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.GoLinterPluginOnboardingV2&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.analysis.ui.options.defaults&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vip88/Desktop/shell&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
     &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;language.rust.cargo.check&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="cmd" />
-    </option>
-  </component>
   <component name="RunManager" selected="Cargo.Run shell">
-    <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Run shell" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package shell --bin shell" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -181,52 +165,21 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Cargo.Run shell" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-gosdk-63c95d513abe-9addb268e56c-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-262.8665.336" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-GO-262.8665.336" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="4b00a2da-9993-4beb-a3f8-78047a33f579" name="更改" comment="" />
-      <created>1785386281969</created>
+      <changelist id="5c4ff07b-f703-456b-8196-71bb5c30574e" name="更改" comment="" />
+      <created>1787825873069</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1785386281969</updated>
+      <updated>1787825873069</updated>
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/shell$Run_shell.info" NAME="Run shell 覆盖结果" MODIFIED="1785917039116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="RsCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" CONTEXT_FILE_PATH="C:\Users\vip88\Desktop\shell" />
   </component>
 </project>

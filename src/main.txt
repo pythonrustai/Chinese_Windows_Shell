@@ -1,11 +1,12 @@
 use std::env;
+use std::fs;
 use std::path::PathBuf;
 use std::io;
 use std::io::Write;
+
 use shell::{Operation, GlobalPath, Grep};
 
 fn main() {
-
     ascii_picture();
     let home = env::home_dir().unwrap();
     let line = env::current_dir();
@@ -22,11 +23,11 @@ fn main() {
         let mut work_path: PathBuf = {
             env::current_dir().unwrap()
         };
-        print!("AT {}@{}:{}> ", env::var("COMPUTERNAME").unwrap(), env::var("USERNAME").unwrap(), &work_path.display());
+        print!("AT {}@{}:{}> ", env::var("COMPUTERNAME").unwrap(), env::var("USERNAME").unwrap(), env::current_dir().unwrap().display());
         io::stdout().flush().unwrap();
         let _ = io::stdin().read_line(&mut io);
         input = io.trim().to_string().clone();
-        let a: Vec<&str> = input.split_whitespace().collect::<Vec<&str>>();
+        let a: Vec<&str> = input.split_whitespace().collect();
         let mut a_copy = a.clone();
         let operation1 : Operation = Operation{
             user_io : a_copy,
@@ -47,15 +48,12 @@ fn main() {
         // if input.is_empty() {
         //     continue;
         // }
-        if global_path_1.a.is_empty() {
-            continue;
-        }
         match global_path_1.a[0].trim() {
             "切换目录" | "cd" => {
-                operation1.cd(&operation1.user_io, &input ,&mut work_path);
+                operation1.cd(&operation1.user_io , &mut work_path);
             },
             "目录下文件" | "ls" | "dir" => {
-                operation1.ls(&operation1.user_io, &input ,&mut work_path);
+                operation1.ls();
             },
             "退出" | "exit" | "quit" => break,
             "当前目录" | "pwd" => {
@@ -63,29 +61,29 @@ fn main() {
                 continue;
             }
             "复制" | "cp" | "copy" => {
-                operation1.cp(&operation1.user_io , &input ,&mut work_path);
+                operation1.cp(&operation1.user_io , &input);
             },
             "" => continue,
             "rm" | "删除" | "rmdir" | "remove" | "del" | "delete" => {
-                operation1.rm(&operation1.user_io, &input ,&mut work_path);
+                operation1.rm(&operation1.user_io);
             },
             "echo" | "打印" | "print" | "printf" | "println" | "println!" => {
-                operation1.echo(&operation1.user_io , &input ,&mut work_path);
+                operation1.echo(&operation1.user_io);
             },
             "mkdir" | "mk" | "新建文件夹" | "新文件夹" | "创建目录" => {
-                operation1.mkdir(&operation1.user_io , &input ,&mut work_path);
+                operation1.mkdir(&operation1.user_io);
             },
             "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" | "type" => {
-                operation1.touch(&operation1.user_io , &input ,&mut work_path);
+                operation1.touch(&operation1.user_io);
             },
              "文件内容" | "cat" => {
-                operation1.cat(&operation1.user_io ,&input ,&mut work_path);
+                operation1.cat(&operation1.user_io);
             },
             "grep" | "包含`" | "包括" => {
-                operation1.grep(&operation1.user_io, &input ,&mut work_path);
+                operation1.grep(&operation1.user_io);
             },
             _ => {
-                operation1.x(&operation1.user_io , &input ,&mut work_path);
+                operation1.x(global_path_1.ming_l);
             }
         }
         if guandao {}
