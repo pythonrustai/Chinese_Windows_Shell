@@ -1,4 +1,5 @@
 use std::{env, fs, io};
+use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
@@ -18,32 +19,12 @@ pub struct Operation<'operation>{
     pub home_path: &'operation PathBuf,
 }
 impl<'operation>Operation<'operation>{
-    pub fn cd (&self, user_io : &Vec<&str>, work_path: &mut PathBuf) {
+    pub fn cd (&self, user_io : &Vec<&str> ,_input: &String , work_path: &mut PathBuf) {
         if user_io.len() == 1 {
-            let mut  temp = env::home_dir();
+            let mut temp = env::home_dir();
             match &mut temp {
                 Some(_) => {
-                },
-                None => {}
-            }
-            match env::set_current_dir(&self.home_path) {
-                Ok(_) => {
-                    *work_path = env::home_dir().unwrap();
-                },
-                Err(q) => {
-                    eprintln!("\x1b[1;31m切换目录失败：{}\x1b[0m", q);
-                    return;
-                },
-            }
-        } else {
-            if user_io[1] == "~" {
-                let mut  temp = env::home_dir();
-                match &mut temp {
-                    Some(_) => {
-                    },
-                    None => {}
-                }
-                match env::set_current_dir(&self.home_path) {
+                    match env::set_current_dir(&self.home_path) {
                     Ok(_) => {
                         *work_path = env::home_dir().unwrap();
                     },
@@ -52,22 +33,42 @@ impl<'operation>Operation<'operation>{
                         return;
                     },
                 }
-            }
-            let full_path = user_io[1..].join(" ");
-            match env::set_current_dir(Path::new(&full_path)) {
-                Ok(q) => {
-                    *work_path = env::home_dir().unwrap();
                 },
-                Err(q) => {
-                    eprintln!("\x1b[1;31m切换目录失败：{}\x1b[0m", q);
-                    return;
+                None => {
+                    eprintln!("\x1b[1;31m切换目录失败：\x1b[0m");
+                    return;}
+            }
+
+        } else {
+            if user_io[1] == "~" {
+                let mut temp = env::home_dir();
+                match &mut temp {
+                    Some(_) => {
+                        *work_path = env::home_dir().unwrap();
+                    },
+                    None => {
+                        eprintln!("\x1b[1;31m切换目录失败\x1b[0m",);
+                        return;
+                    }
+                }
+            }
+            else {
+                let full_path = user_io[1..].join(" ");
+                match env::set_current_dir(Path::new(&full_path)) {
+                    Ok(q) => {
+                        *work_path = PathBuf::from(user_io[1..].join(" "));
+                    },
+                    Err(q) => {
+                        eprintln!("\x1b[1;31m切换目录失败：{}\x1b[0m", q);
+                        return;
+                    }
                 }
             }
         }
     }
 
-    pub fn ls(&self) -> String {
-        let ls = fs::read_dir(".");
+pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> String {
+    let ls = fs::read_dir(".");
         let mut w : String = String::new();
         match ls {
             Ok(e) => {
@@ -93,8 +94,8 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn cp(&self , user_io : &Vec<&str> , input : &String) {
-        let s: Vec < &str > = input.split_whitespace().collect();
+    pub fn cp(&self , user_io : &Vec<&str> , input : &String , _work_path: &mut PathBuf) {
+        let s: Vec <&str> = input.split_whitespace().collect();
         if user_io.len() < 3 {
             eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", s[0].to_string());
             return;
@@ -114,7 +115,7 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn rm(&self , user_io : &Vec<&str>) {
+    pub fn rm(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         if user_io.len() < 2 {
             eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", user_io[0].to_string());
             return;
@@ -151,7 +152,7 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn echo(&self , user_io : &Vec<&str>) {
+    pub fn echo(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0].to_string());
             return;
@@ -160,7 +161,7 @@ impl<'operation>Operation<'operation>{
         println!("{}", temp);
     }
 
-    pub fn mkdir(&self , user_io : &Vec<&str>) {
+    pub fn mkdir(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0]);
             return;
@@ -180,7 +181,7 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn touch(&self , user_io : &Vec<&str>) {
+    pub fn touch(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         if user_io.len() < 2 {
             eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", user_io[0]);
             return;
@@ -205,7 +206,7 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn cat(&self , user_io : &Vec<&str>) {
+    pub fn cat(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0].to_string());
             return;
@@ -225,7 +226,7 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn grep(&self , user_io : &Vec<&str>) -> Grep{
+    pub fn grep(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> Grep{
         if user_io.len() <= 2 {
             eprintln!("\x1b[0m命令无效\"{}\"!\x1b[0m", user_io[0].to_string());
             let grep_err: Grep = Grep{
@@ -278,16 +279,22 @@ impl<'operation>Operation<'operation>{
         }
     }
 
-    pub fn x(&self , input : String) {
+    pub fn x(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         let mut temp: String = String::new();
-        for i in input.chars() {
+        for i in user_io[0].chars() {
             temp.push(i);
         }
         if Path::new(&temp).exists() {
             let _ = Command::new("cmd").args(["/c", temp.as_str()]).spawn();
         }
         else {
-            eprintln!("\x1b[1;31m未找到命令:\"{}\",此命令无效!\x1b[0m", &input);
+            eprintln!("\x1b[1;31m未找到命令:\"{}\",此命令无效!\x1b[0m", &user_io[0]);
         }
     }
+}
+
+fn cmd_list_pipe() -> HashMap<String, fn(&Operation ,&Vec<&str>, &String ,&mut PathBuf)> {
+    let mut cmd_list_pipe: HashMap<String, fn(&Operation ,user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf)> = HashMap::new();
+    cmd_list_pipe.insert("切换目录".to_string(), Operation::ls);
+    cmd_list_pipe
 }

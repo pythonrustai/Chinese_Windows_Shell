@@ -295,6 +295,6 @@ pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBu
 
 fn cmd_list_pipe() -> HashMap<String, fn(&Operation ,&Vec<&str>, &String ,&mut PathBuf)> {
     let mut cmd_list_pipe: HashMap<String, fn(&Operation ,user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf)> = HashMap::new();
-    cmd_list_pipe.insert("切换目录".to_string(), Operation::ls);
+    cmd_list_pipe.insert("切换目录".to_string(), Operation::cd);
     cmd_list_pipe
 }
