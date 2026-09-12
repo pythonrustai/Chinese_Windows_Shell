@@ -18,6 +18,11 @@ pub struct Operation<'operation>{
     pub user_io : Vec<&'operation str>,
     pub home_path: &'operation PathBuf,
 }
+
+pub struct ReturnData{
+    stdin: String,
+    stderr: String,
+}
 impl<'operation>Operation<'operation>{
     pub fn cd (&self, user_io : &Vec<&str> ,_input: &String , work_path: &mut PathBuf) {
         if user_io.len() == 1 {
@@ -279,22 +284,17 @@ pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBu
         }
     }
 
-    pub fn x(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
-        let mut temp: String = String::new();
-        for i in user_io[0].chars() {
-            temp.push(i);
+    pub fn x(&self , _user_io : &Vec<&str>, input: &String , _work_path: &mut PathBuf) {
+            if let Err(cmd_err) = Command::new("cmd").args(["/c", input.as_str()]).spawn() {
+                println!("\x1b[1;31m{}\x1b[0m", cmd_err);
+            }
         }
-        if Path::new(&temp).exists() {
-            let _ = Command::new("cmd").args(["/c", temp.as_str()]).spawn();
-        }
-        else {
-            eprintln!("\x1b[1;31m未找到命令:\"{}\",此命令无效!\x1b[0m", &user_io[0]);
-        }
-    }
 }
 
+/*
 fn cmd_list_pipe() -> HashMap<String, fn(&Operation ,&Vec<&str>, &String ,&mut PathBuf)> {
-    let mut cmd_list_pipe: HashMap<String, fn(&Operation ,user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf)> = HashMap::new();
-    cmd_list_pipe.insert("切换目录".to_string(), Operation::cd);
-    cmd_list_pipe
+let mut cmd_list_pipe: HashMap<String, fn(&Operation ,user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf)> = HashMap::new();
+cmd_list_pipe.insert("切换目录".to_string(), Operation::cd);
+cmd_list_pipe
 }
+*/
