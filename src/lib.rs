@@ -1,7 +1,8 @@
 use std::{env, fs, io};
-use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::process::Command;
+//use std::collections::{HashMap, HashSet};
+
 
 pub struct GlobalPath<'global_path>{
     pub home : PathBuf,
@@ -24,7 +25,7 @@ pub struct ReturnData{
     stderr: String,
 }
 impl<'operation>Operation<'operation>{
-    pub fn cd (&self, user_io : &Vec<&str> ,_input: &String , work_path: &mut PathBuf) {
+    pub fn cd (&self, user_io : &Vec<&str> ,_input: &String , work_path: &mut PathBuf){
         if user_io.len() == 1 {
             let mut temp = env::home_dir();
             match &mut temp {
@@ -35,7 +36,7 @@ impl<'operation>Operation<'operation>{
                     },
                     Err(q) => {
                         eprintln!("\x1b[1;31m切换目录失败：{}\x1b[0m", q);
-                        return;
+                        return ;
                     },
                 }
                 },
@@ -60,7 +61,7 @@ impl<'operation>Operation<'operation>{
             else {
                 let full_path = user_io[1..].join(" ");
                 match env::set_current_dir(Path::new(&full_path)) {
-                    Ok(q) => {
+                    Ok(_) => {
                         *work_path = PathBuf::from(user_io[1..].join(" "));
                     },
                     Err(q) => {
@@ -192,12 +193,12 @@ pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBu
             return;
         }
         if user_io[0] == "touch" || user_io[0] == "新建文件" || user_io[0] == "ni"{
-            let _ = fs::File::create(user_io[1]);
-            println!("文件\"{}\"创建成功", user_io[1]);
+            let _ = fs::File::create(user_io[1].to_string());
+            println!("文件\"{}\"创建成功", user_io[1].to_string());
         }
         if user_io.len() == 4 {
             if user_io[0] == "type" &&user_io[1] == "nul" && user_io[2] == ">" {
-                let temp = fs::File::create(user_io[3]);
+                let temp = fs::File::create(user_io[3].to_string());
                 match &temp {
                     Ok(_) => {
                         println!("文件\"{}\"创建成功", user_io[3]);
