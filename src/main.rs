@@ -1,11 +1,11 @@
-use std::env;
+use std::{env, fs};
 use std::path::PathBuf;
 use std::io;
 use std::io::Write;
-use shell::{Operation, GlobalPath, Grep};
+use shell::{Operation, GlobalPath, cmd_list_pipe};
 
 fn main() {
-
+    let pipe_list = cmd_list_pipe();
     ascii_picture();
     let home = env::home_dir().unwrap();
     let line = env::current_dir();
@@ -28,7 +28,8 @@ fn main() {
         input = io.trim().to_string().clone();
         let a: Vec<&str> = input.split_whitespace().collect::<Vec<&str>>();
         let mut a_copy = a.clone();
-        let operation1 : Operation = Operation{
+        let a_copy_copy = a_copy.clone();
+        let mut operation1: Operation = Operation{
             user_io : a_copy,
             home_path : &home,
         };
@@ -50,47 +51,97 @@ fn main() {
         if global_path_1.a.is_empty() {
             continue;
         }
-        match global_path_1.a[0].trim() {
-            "切换目录" | "cd" => {
+        match &global_path_1.a[0].trim() {
+            &"切换目录" | &"cd" => {
                 operation1.cd(&operation1.user_io, &input ,&mut work_path);
             },
-            "目录下文件" | "ls" | "dir" => {
+            &"目录下文件" | &"ls" | &"dir" => {
                 operation1.ls(&operation1.user_io, &input ,&mut work_path);
             },
-            "退出" | "exit" | "quit" => break,
-            "当前目录" | "pwd" => {
+            &"退出" | &"exit" | &"quit" => break,
+            &"当前目录" | &"pwd" => {
                 println!("{}", env::current_dir().unwrap().display());
                 continue;
             }
-            "复制" | "cp" | "copy" => {
+            &"复制" | &"cp" | &"copy" => {
                 operation1.cp(&operation1.user_io , &input ,&mut work_path);
             },
-            "" => continue,
-            "rm" | "删除" | "rmdir" | "remove" | "del" | "delete" => {
+            &"" => continue,
+            &"rm" | &"删除" | &"rmdir" | &"remove" | &"del" | &"delete" => {
                 operation1.rm(&operation1.user_io, &input ,&mut work_path);
             },
-            "echo" | "打印" | "print" | "printf" | "println" | "println!" => {
+            &"echo" | &"打印" | &"print" | &"printf" | &"println" | &"println!" => {
                 operation1.echo(&operation1.user_io , &input ,&mut work_path);
             },
-            "mkdir" | "mk" | "新建文件夹" | "新文件夹" | "创建目录" => {
+            &"mkdir" | &"mk" | &"新建文件夹" | &"新文件夹" | &"创建目录" => {
                 operation1.mkdir(&operation1.user_io , &input ,&mut work_path);
             },
-            "touch" | "New-Item" | "ni" | "新建文件" | "新文件" | "创建文件" | "type" => {
+            &"touch" | &"New-Item" | &"ni" | &"新建文件" | &"新文件" | &"创建文件" | &"type" => {
                 operation1.touch(&operation1.user_io , &input ,&mut work_path);
             },
-             "文件内容" | "cat" => {
+            &"文件内容" | &"cat" => {
                 operation1.cat(&operation1.user_io ,&input ,&mut work_path);
             },
-            "grep" | "包含`" | "包括" => {
+            &"grep" | &"包含" | &"包括" | &"Select-String" | &"sls" => {
                 operation1.grep(&operation1.user_io, &input ,&mut work_path);
             },
             _ => {
                 operation1.x(&operation1.user_io , &input ,&mut work_path);
             }
         }
-        if guandao {}
+        if guandao {
+            let mut usi: usize = 0usize;
+            let mut a_copy1 = Vec::new();
+            let mut a_copy2 = Vec::new();
+            for i in &a_copy_copy {
+                usi+=1;
+                if i == &"|" {
+                    usi += 1;
+                    a_copy1 = a_copy_copy[0..usi - 1usize].to_vec();
+                    a_copy2 = a_copy_copy[usi..].to_vec();
+                }
+            }
+            let pipe_ham = pipe_list.get(&a_copy1[0].to_string());
+            match pipe_ham {
+                Some(e) => {
+                    let the_pipe1: Result<String, String> = e(&operation1 ,&a_copy1 ,&input ,&mut work_path);
+                    match the_pipe1 {
+                        Ok(t) => {
+                            let env_temp: String = env::var("TEMP").unwrap();
+                            let TEMP_TES: String = env_temp + "temptemptemp.txt";
+                            fs::File::create(&TEMP_TES).unwrap();
+                            let sss = t.clone();
+                            fs::write(TEMP_TES, t).unwrap();
+                            println!("{}", &sss);
+                            let pipe_ham_2 = pipe_list.get(&a_copy2[0].to_string());
+                            match pipe_ham_2 {
+                                Some(e) => {
+                                    let the_pipe1: Result<String, String> = e(&operation1,&a_copy2 ,&sss ,&mut work_path);
+                                    match the_pipe1 {
+                                        Ok(t) => {
+                                            println!("{}", t);
+                                        },
+                                        Err(err) => {
+                                            println!("第一个命令报错，原因：{}", err);
+                                        }
+                                    }
+                                }
+                                None => {
+                                }
+                            }
+                        }
+                        Err(err) => {
+                            println!("第一个命令报错，原因：{}", err);
+                        }
+                    }
+                },
+                None => {
+                },
+            };
+        }
     }
 }
+
 
 fn ascii_picture() {
     println!("     _      _   _   _____   _____ ");

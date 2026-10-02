@@ -1,8 +1,7 @@
 use std::{env, fs, io};
 use std::path::{Path, PathBuf};
 use std::process::Command;
-//use std::collections::{HashMap, HashSet};
-
+use std::collections::HashMap;
 
 pub struct GlobalPath<'global_path>{
     pub home : PathBuf,
@@ -10,22 +9,15 @@ pub struct GlobalPath<'global_path>{
     pub a : Vec<&'global_path str>,
 }
 
-pub struct Grep {
-    pub exit_code : u8,
-    pub word : String,
-}
-
+#[derive(Clone)]
 pub struct Operation<'operation>{
     pub user_io : Vec<&'operation str>,
     pub home_path: &'operation PathBuf,
 }
 
-pub struct ReturnData{
-    stdin: String,
-    stderr: String,
-}
 impl<'operation>Operation<'operation>{
-    pub fn cd (&self, user_io : &Vec<&str> ,_input: &String , work_path: &mut PathBuf){
+//内置命令
+    pub fn cd (&self, user_io : &Vec<&str> ,_input: &String , work_path: &mut PathBuf) {
         if user_io.len() == 1 {
             let mut temp = env::home_dir();
             match &mut temp {
@@ -72,34 +64,7 @@ impl<'operation>Operation<'operation>{
             }
         }
     }
-
-pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> String {
-    let ls = fs::read_dir(".");
-        let mut w : String = String::new();
-        match ls {
-            Ok(e) => {
-                println!("==========文件夹下文件:==========");
-                for i in e {
-                    match i {
-                        Ok(e) => {
-                            println!("{}", e.path().display());
-                            w = e.path().display().to_string().clone();
-
-                        }
-                        Err(_) => {
-                            eprintln!("\x1b[1;31m无法读取文件夹，请检查权限和路径\x1b[0m");
-                            return Default::default();}
-                    }
-                }
-                w
-            }
-            Err(_) => {
-                eprintln!("\x1b[1;31m无法读取文件夹，请检查权限和路径\x1b[0m");
-                Default::default()
-            }
-        }
-    }
-
+    
     pub fn cp(&self , user_io : &Vec<&str> , input : &String , _work_path: &mut PathBuf) {
         let s: Vec <&str> = input.split_whitespace().collect();
         if user_io.len() < 3 {
@@ -158,15 +123,6 @@ pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBu
         }
     }
 
-    pub fn echo(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
-        if user_io.len() < 2 {
-            println!("命令\"{}\"无效!", user_io[0].to_string());
-            return;
-        }
-        let temp: String = user_io[1..].join(" ");
-        println!("{}", temp);
-    }
-
     pub fn mkdir(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0]);
@@ -212,39 +168,81 @@ pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBu
         }
     }
 
-    pub fn cat(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) {
+//外部命令    
+    
+pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> Result<String, String> {
+    let ls = fs::read_dir(".");
+        let mut w : String;
+    let mut temp: String = String::new();
+        match ls {
+            Ok(e) => {
+                println!("==========文件夹下文件:==========");
+                for i in e {
+                    match i {
+                        Ok(e) => {
+                            println!("{}", e.path().display());
+                            w = e.path().display().to_string();
+                            let str_t: &str = &w.clone();
+                            temp.push_str(str_t);
+                            temp.push_str("\n");
+                            temp.to_string();
+                        }
+                        Err(_) => {
+                            eprintln!("\x1b[1;31m无法读取文件夹，请检查权限和路径\x1b[0m");
+                            return Err("无法读取文件夹，请检查权限和路径".to_string())
+                        }
+                    }
+                }
+                Ok(temp)
+            }
+            Err(_) => {
+                eprintln!("\x1b[1;31m无法读取文件夹，请检查权限和路径\x1b[0m");
+                Err("无法读取文件夹，请检查权限和路径".to_string())
+            }
+        }
+    }
+
+    pub fn echo(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> Result<String, String> {
         if user_io.len() < 2 {
             println!("命令\"{}\"无效!", user_io[0].to_string());
-            return;
+            return Err("命令\"echo\"无效!".to_string());
+        }
+        let temp: String = user_io[1..].join(" ");
+        println!("{}", temp);
+        Ok(temp)
+    }
+
+    pub fn cat(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> Result<String, String> {
+        if user_io.len() < 2 {
+            println!("命令\"{}\"无效!", user_io[0].to_string());
+            return Err(String::from("命令\"cat\"无效!"))
         }
         if Path::new(user_io[1]).is_file() {
             let q = fs::read_to_string(user_io[1]);
             match &q {
                 Ok(q) => {
-                    eprintln!("\x1b[1;31m{}\x1b[0m", q);
+                    println!("{}", q);
+                    Ok(String::from(q))
                 },
                 Err(_) => {
                     eprintln!("\x1b[1;31m\"{}\"无法打开\x1b[0m", user_io[1].to_string());
-                    return;
+                   Err("无法打开指定文件".to_string())
                 }
             }
-            return;
+        } else {
+            Err("无法打开指定文件".to_string())
         }
     }
 
-    pub fn grep(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> Grep{
+    pub fn grep(&self , user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf) -> Result<String, String> {
         if user_io.len() <= 2 {
             eprintln!("\x1b[0m命令无效\"{}\"!\x1b[0m", user_io[0].to_string());
-            let grep_err: Grep = Grep{
-                exit_code : 0 ,
-                word : String::new() ,
-            };
-            grep_err
+            Err("命令\"grep\"无效".to_string())
         }
         else {
             let mut back: String = String::new();
             let temp: String = user_io[2].to_string();
-            let mut files: String = String::new();
+            let files: String;
             match fs::read_to_string(&temp) {
                 Ok(q) => {
                     files = q;
@@ -256,46 +254,35 @@ pub fn ls(&self, _user_io: &Vec<&str>, _input: &String , _work_path: &mut PathBu
                         }
                     }
                     if back == String::new() {
-                        let grep_new: Grep = Grep{
-                            exit_code : 1 ,
-                            word : String::new() ,
-                        };
                         eprintln!("\x1b[1;31m没有找到\"{}\"\x1b[0m" , user_io[1].to_string());
-                        grep_new
+                        Err("没有找到你指定的文字！".to_string())
                     }
                     else {
-                        let grep_yes: Grep = Grep{
-                            word : back,
-                            exit_code : 0 ,
-                        };
-                        println!("{}", grep_yes.word);
-                        grep_yes
+                        println!("{}", back);
+                        Ok(back.to_string())
                     }
                 },
                 Err(_) => {
-                    eprintln!("\x1b[1;31m命令\"{}\"无效!\x1b[0m", user_io[0].to_string());
-                    let grep_err: Grep = Grep{
-                        exit_code : 0 ,
-                        word : String::new() ,
-                    };
                     eprintln!("\x1b[1;31m没有找到\"{}\"\x1b[0m" , user_io[1].to_string());
-                    grep_err
+                    Err("没有找到你指定的文件！".to_string())
                 }
             }
         }
     }
-
+//cmd命令
     pub fn x(&self , _user_io : &Vec<&str>, input: &String , _work_path: &mut PathBuf) {
-            if let Err(cmd_err) = Command::new("cmd").args(["/c", input.as_str()]).spawn() {
+            if let Err(cmd_err) = Command::new("cmd").args(["/c", input.as_str()]).spawn().unwrap().wait() {
                 println!("\x1b[1;31m{}\x1b[0m", cmd_err);
             }
         }
 }
 
-/*
-fn cmd_list_pipe() -> HashMap<String, fn(&Operation ,&Vec<&str>, &String ,&mut PathBuf)> {
-let mut cmd_list_pipe: HashMap<String, fn(&Operation ,user_io : &Vec<&str>, _input: &String , _work_path: &mut PathBuf)> = HashMap::new();
-cmd_list_pipe.insert("切换目录".to_string(), Operation::cd);
-cmd_list_pipe
+
+pub fn cmd_list_pipe() -> HashMap<String, fn(&Operation ,&Vec<&str>, &String ,&mut PathBuf) ->Result<String, String> > {
+    let mut cmd_list_pipe: HashMap<String, fn(&Operation, &Vec<&str>, &String, &mut PathBuf) -> Result<String, String>> = HashMap::new();
+    cmd_list_pipe.insert("目录下文件".to_string(), |op, _user_io, input, _work_path| op.ls(_user_io, input, _work_path));cmd_list_pipe.insert("ls".to_string() , |op, _user_io, input, _work_path| op.ls(_user_io, input, _work_path));cmd_list_pipe.insert("dir".to_string() , |op, _user_io, input, _work_path| op.ls(_user_io, input, _work_path));
+    cmd_list_pipe.insert("echo".to_string(), |op, _user_io, input, _work_path| op.echo(_user_io, input, _work_path));cmd_list_pipe.insert("打印".to_string() , |op, _user_io, input, _work_path| op.echo(_user_io, input, _work_path));cmd_list_pipe.insert("print".to_string() , |op, _user_io, input, _work_path| op.echo(_user_io, input, _work_path));cmd_list_pipe.insert("println".to_string() ,|op, _user_io, input, _work_path| op.echo(_user_io, input, _work_path));cmd_list_pipe.insert("printf".to_string() , |op, _user_io, input, _work_path| op.echo(_user_io, input, _work_path));cmd_list_pipe.insert("println!".to_string() , |op, _user_io, input, _work_path| op.echo(_user_io, input, _work_path));
+    cmd_list_pipe.insert("cat".to_string() , |op, _user_io, input, _work_path| op.cat(_user_io, input, _work_path));cmd_list_pipe.insert("文件内容".to_string() ,|op, _user_io, input, _work_path| op.cat(_user_io, input, _work_path));
+    cmd_list_pipe.insert("grep".to_string() , |op, _user_io, input, _work_path| op.grep(_user_io, input, _work_path)); cmd_list_pipe.insert("包含".to_string() , |op, _user_io, input, _work_path| op.grep(_user_io, input, _work_path)); cmd_list_pipe.insert("包括".to_string() ,|op, _user_io, input, _work_path| op.grep(_user_io, input, _work_path)); cmd_list_pipe.insert("Select-String".to_string() ,|op, _user_io, input, _work_path| op.grep(_user_io, input, _work_path)); cmd_list_pipe.insert("sls".to_string() ,|op, _user_io, input, _work_path| op.grep(_user_io, input, _work_path));
+    cmd_list_pipe
 }
-*/
